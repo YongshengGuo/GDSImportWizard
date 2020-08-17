@@ -5,7 +5,7 @@ Version 1.0
 
 @author: yongsheng.guo@ansys.com
 '''
-unitScale = 2000
+unitScale = 1000
 
 
 import sys,os
