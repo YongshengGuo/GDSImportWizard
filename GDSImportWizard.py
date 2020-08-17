@@ -5,18 +5,17 @@ Version 1.0
 
 @author: yongsheng.guo@ansys.com
 '''
-unitScale = 1000
-
 
 import sys,os
 
 appPath = os.path.split(os.path.realpath(__file__))[0]
-sys.path.append(appPath)    
+sys.path.append(appPath)
 
 import clr
 clr.AddReference('System.Windows.Forms')
 clr.AddReference('System.Drawing')
 clr.AddReferenceToFile('gdslib.dll')
+#clr.AddReferenceToFileAndPath("JEDEC.dll")
 from System.Windows.Forms import Application
 import MainForm
 
@@ -32,10 +31,9 @@ except ImportError:
 else:
     print('Running in AEDT environment')
     
-    
+
 MainForm.oDesktop = oDesktop
 MainForm.appPath = appPath
-MainForm.gdsxml.gds.unitScale = unitScale
 
 Application.EnableVisualStyles()
 form = MainForm.MainForm()
