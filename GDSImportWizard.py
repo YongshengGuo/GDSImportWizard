@@ -18,10 +18,18 @@ def runInGUI():
     clr.AddReference('System.Drawing')
     from System.Windows.Forms import Application
     import MainForm
-    
-    if 'oDesktop' not in dir():
-        print('Not Running from AEDT')
-        oDesktop = None    
+
+    global oDesktop    
+    try:
+        if 'oDesktop' not in dir():
+            import ScriptEnv
+            ScriptEnv.Initialize("Ansoft.ElectronicsDesktop")
+            oDesktop.RestoreWindow()
+    except ImportError:
+        print('Not Run from AEDT')
+        oDesktop = None
+    else:
+        print('Running in AEDT environment')
     
     MainForm.oDesktop = oDesktop
     
@@ -76,6 +84,7 @@ run in batchmode:
 set aedtInstallPath=C:\Program Files\AnsysEM\AnsysEM20.2\Win64
 set gdsPath=D:\Study\Script\repository\HFSS\GDSII\GDS2XML\TECH2XML_test\test2.gds
 set ircxPath=D:\Study\Script\repository\HFSS\GDSII\GDS2XML\TECH2XML_test\TSMC_INTERPOSER.ircx
+set path=%aedtInstallPath%\common\IronPython;%path%
 ipy64 GDSImportWizard.py -batch
 
 @Linux
