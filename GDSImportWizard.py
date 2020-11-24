@@ -10,7 +10,9 @@ import sys,os
 import clr
 appPath = os.path.split(os.path.realpath(__file__))[0]
 sys.path.append(appPath)
-clr.AddReferenceToFile('gdslib.dll')
+# clr.AddReferenceToFile('gdslib.dll')
+gdslibPath = os.path.join(appPath,'gdslib.dll')
+clr.AddReferenceToFileAndPath(gdslibPath)
 
 def runInGUI():
     
@@ -35,8 +37,10 @@ def runInGUI():
     
     Application.EnableVisualStyles()
     form = MainForm.MainForm()
-    form.Text = "GDSII Import Wizard 2.1"
+    form.Text = MainForm.titleWin
     Application.Run(form)
+    form.Dispose()
+    del oDesktop
 
 def runInBatchMode(argv):
     from GDS2XML import GDS2XML
