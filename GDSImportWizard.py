@@ -1,7 +1,7 @@
-﻿  # coding=utf-8
+# coding=utf-8
 '''
-Created on 2020-12-19
-Version 3.1
+Created on 2021-03-08
+Version 3.4
 
 @author: yongsheng.guo@ansys.com
 '''
@@ -13,7 +13,7 @@ appDir = os.path.split(appPath)[0]
 sys.path.append(appDir)
 gdslibPath = os.path.join(appDir,'gdslib.dll')
 clr.AddReferenceToFileAndPath(gdslibPath)
-aedtInstallDir = r"C:\Program Files\AnsysEM\AnsysEM20.2\Win64"
+aedtInstallDir = r"C:\Program Files\AnsysEM\AnsysEM21.1\Win64"
 
 def runInGUI():
     
