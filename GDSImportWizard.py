@@ -21,10 +21,10 @@ def runInGUI():
     clr.AddReference('System.Windows.Forms')
     clr.AddReference('System.Drawing')
     from System.Windows.Forms import Application
-    import MainForm
+    import MainForm2
     Application.EnableVisualStyles()
-    form = MainForm.MainForm()
-    form.Text = MainForm.titleWin
+    form = MainForm2.MainForm()
+    form.Text = MainForm2.titleWin
     Application.Run(form)
     form.Dispose()
 
