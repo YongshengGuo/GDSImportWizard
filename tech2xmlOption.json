@@ -5,10 +5,7 @@
     ],
     "OpenInAedt": true,
     "IgnoreLayersReg": [
-        "air",
-        "ctm.*",
-        "cbm.*",
-        "dtce.*"
+        "air"
     ],
     "DefaultDF": 0.02,
     "AutoComps": true,
