@@ -46,7 +46,7 @@
 ,,,,,,,,,,,,,,
 #Note:,,,,,,,,,,,,,,
 1,lines beginning with # will be considered comments,,,,,,,,,,,,,
-2,lines without Type value will be ignored,,,,,,,,,,d,,,
+2,lines without Type value will be ignored,,,,,,,,,,,,,
 3,"Type definition, C : Conductor/Metal layer,  V : Via layer, D : Dielectric layer, I : Insulating layer",,,,,,,,,,,,,
 4,"Conductor/Metal and Via layer must have LayerMap value, or will be ignore",,,,,,,,,,,,,
 5,"Dielectric Layer Height is optional, if present the dielectrics will be reorder by the height",,,,,,,,,,,,,
