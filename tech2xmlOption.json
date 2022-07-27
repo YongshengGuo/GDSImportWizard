@@ -12,7 +12,7 @@
     "AutoTSVCoat": true,
     "Default": null,
     "VersionKey": "10000",
-    "DkDeviationThreshold": 0.050000000000000003,
+    "DkDeviationThreshold": 0.1,
     "ComponentPinsTolerance": 10,
     "LayerMapFile": null,
     "NetRegular": ".*",
@@ -33,7 +33,7 @@
     "ConvertPolygonToCircle": true,
     "AedtInstallDir": null,
     "MergeDielectricMethod": 0,
-    "SheetLayerThreshold": 0.0015,
+    "SheetLayerThreshold": 0.005,
     "ConvertPolygonToCircleRatio": 0.90000000000000002,
     "DefaultDF": 0.02,
     "Precision": 6,
@@ -62,5 +62,5 @@
         "cbm.*",
         "dtce.*"
     ],
-    "ImportDummyLayer": true
+    "ImportDummyLayer": false
 }
