@@ -20,7 +20,7 @@
     "TextLayermap": {},
     "UseShortMergeLayerName": true,
     "ControlXmlPath": null,
-    "DissolveViaGroup": true,
+    "DissolveViaGroup": false,
     "VersionKey": "10000",
     "AutoTSVCoat": true,
     "ImportDummyLayer": false,
