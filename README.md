@@ -1,8 +1,6 @@
 # GDSImportWizard
 Latest version:  https://github.com/YongshengGuo/GDSImportWizard/releases/latest
 
-Author: yongsheng.guo@ansys.com
-
 功能简介：
 该工具可快速将GDS格式文件导入到Ansys HFSS 3D Layout中进行仿真建模和分析，支持非加密的IRCX文件、itf文件，也支持自定义的工艺文件格式（未直接支持的文件可通过CSV导入定义）。支持应用包括2.5D/3D Package、RF Chip、TSV、Silicon-SI等。
 
