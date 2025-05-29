@@ -1,15 +1,7 @@
 {
-    "UseDefaultDF": false,
-    "SimplifyDieletricMethod": 1,
-    "edbPath": null,
-    "MergeDielectricMethod": 0,
-    "CompLayerList": [
-        1,
-        -1
-    ],
-    "NetRegular": ".*",
-    "ImportDummyNet": true,
-    "TechFile": null,
+    "VersionKey": "10000",
+    "UseShortMergeLayerName": true,
+    "GDSIIScalingFactor": 1,
     "IgnoreLayersReg": [
         "air",
         "ctm.*",
@@ -17,49 +9,60 @@
         "dtce.*"
     ],
     "CreatViaGroups": true,
-    "TextLayermap": {},
-    "UseShortMergeLayerName": true,
+    "ThinDielectricThreshold": 0.10000000000000001,
+    "ConvertPolygonToCircleRatio": 0.90000000000000002,
+    "MetalLayerSnappingTolerance":"0.001um",
     "ControlXmlPath": null,
-    "DissolveViaGroup": false,
-    "VersionKey": "10000",
-    "AutoTSVCoat": true,
-    "ImportDummyLayer": false,
+    "Default": null,
+    "UseSheetLayer": true,
+    "SheetLayerThreshold": 0.0015,
+    "NetRegular": ".*",
+    "DummyLayerReg": [
+        "metal\\d+"
+    ],
+    "edbPath": null,
     "Materials": [],
-    "NetlistFile": null,
-    "AutoComps": true,
     "UseTemperatureDependMaterial": false,
-    "GdsFile": null,
+    "OpenInAedt": true,
+    "AedtInstallDir": null,
+    "LayerMapFile": null,
+    "ImportDummyLayer": false,
     "NotUseViaGroupsOnLayers": [
         ".*tsv.*",
         "pmb"
     ],
-    "InsulatorThickness": 1,
-    "LayerMapFile": null,
-    "OpenInAedt": true,
-    "FixedSmallLayerGap": 0.0050000000000000001,
+    "UseDefaultDF": false,
+    "ComponentPinsTolerance": 10,
+    "Precision": 6,
+    "DefaultDF": 0.02,
+    "InputType": 0,
     "CreatViaGroupsOption": {
         "Method": "proximity",
         "Tolerance": "5um",
         "CheckContainment": "true"
     },
-    "DummyLayerReg": [
-        "metal\\d+"
+    "ImportDummyNet": true,
+    "DkDeviationThreshold": 0.050000000000000003,
+    "NotUseDfonSubstrate": true,
+    "CompLayerList": [
+        1,
+        -1
     ],
-    "AedtInstallDir": null,
-    "InputType": 0,
-    "UseSheetLayer": true,
-    "ConvertPolygonToCircle": true,
+    "TextLayermap": {},
     "UnionPrimitivesOnLayer": [
         "ubmb",
         "ubump"
     ],
-    "NotUseDfonSubstrate": true,
-    "Precision": 6,
-    "DefaultDF": 0.02,
-    "ComponentPinsTolerance": 10,
-    "SheetLayerThreshold": 0.0015,
-    "ConvertPolygonToCircleRatio": 0.90000000000000002,
-    "DkDeviationThreshold": 0.050000000000000003,
-    "ThinDielectricThreshold": 0.10000000000000001,
-    "Default": null
+    "AutoTSVCoat": true,
+    "DissolveViaGroup": false,
+    "CsvOut": null,
+    "InsulatorThickness": 1,
+    "SimplifyDieletricMethod": 1,
+    "GdsFile": null,
+    "AutoComps": true,
+    "MergeDielectricMethod": 0,
+    "FixedSmallLayerGap": 0.0050000000000000001,
+    "NetlistFile": null,
+    "TechFile": null,
+    "ConvertPolygonToCircle": true
 }
