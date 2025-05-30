@@ -11,7 +11,7 @@
     "CreatViaGroups": true,
     "ThinDielectricThreshold": 0.10000000000000001,
     "ConvertPolygonToCircleRatio": 0.90000000000000002,
-    "MetalLayerSnappingTolerance":"0.001um",
+    "MetalLayerSnappingTolerance":"0.01um",
     "ControlXmlPath": null,
     "Default": null,
     "UseSheetLayer": true,
