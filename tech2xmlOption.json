@@ -33,6 +33,7 @@
     ],
     "UseDefaultDF": false,
     "ComponentPinsTolerance": 10,
+    "SpecificTemperatureForResist":100,
     "Precision": 6,
     "DefaultDF": 0.02,
     "InputType": 0,
