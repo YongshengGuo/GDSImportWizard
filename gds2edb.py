@@ -1,4 +1,4 @@
-"""Repository-root launcher that forwards to src/gds2edb/gdsImportWizard.py."""
+"""Repository-root launcher that forwards to src/gds2edb/gds2edb.py."""
 
 from pathlib import Path
 import runpy
@@ -6,7 +6,7 @@ import runpy
 
 def main() -> int:
     project_root = Path(__file__).resolve().parent
-    entry = project_root / "src" / "gds2edb" / "gdsImportWizard.py"
+    entry = project_root / "src" / "gds2edb" / "gds2edb.py"
     if not entry.exists():
         raise FileNotFoundError(f"Entry file not found: {entry}")
 

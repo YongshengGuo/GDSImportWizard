@@ -1,0 +1,199 @@
+{
+  "Header": {
+    "Version": 0.1,
+    "Date": 20230330,
+    "UserID": "xxx",
+    "Comment": "Comment",
+    "Workflow": "snpsim",
+    "Name": null
+  },
+  "AEDT": {
+    "Version": null,
+    "InstallPath": null,
+    "UsePyaedt": false,
+    "LogPath":null,
+    "WaitForLicense": false,
+    "LicenseServer": "1055@shnyguo",
+    "KeepGUILicense": false,
+    "NonGraphical":true,
+    "NewSession":false,
+    "RetryOnError": false,
+    "MultiProcess":1
+  },
+  "Import": {
+    "Enable": true,
+    "LayoutType": null,
+    "LayoutVersion": null,
+    "LayoutPath": null,
+    "ControlFile": "",
+    "EdbOutPath": null,
+    "SaveAs":null,
+    "extractExePath": null
+  },
+  "Stackup": {
+    "Enable": true,
+    "Matrials": {
+      "FR4": {
+        "DK": "3.8",
+        "DF": "0.015"
+      }
+    },
+    "Layers": []
+  },
+  "Component": {
+    "Enable": true,
+    "Models":{"C1":{"Refdes":"C1","Part":"cap1","Type":"Capacitor","Model":null,"R":null,"L":null,"C":null,"FileName":null}}
+  },
+
+  "Net": {
+    "Enable": true,
+    "PowerNets":[],
+    "GroundNets": [],
+    "SignalNets": [],
+    "MergePhysicallyConnected":false,
+    "MergeShortNets":false,
+    "DisjointNets":false,
+    "ShortNets": {} 
+  },
+
+  "ClearLayout": {
+    "Enable": true,
+    "KeepNetWithPort": true,
+    "KeepNet": [],
+    "RemoveNet": [],
+    "RemoveComponentPinsLessThen": 2,
+    "RemoveComponentNetsLessThen": 2
+  },
+
+  "Cutout": {
+    "Enable": true,
+    "NetInclude": [],
+    "NetClip": [
+      "GND",
+      "VSS"
+    ],
+    "KeepOtherNets": false,
+    "KeepPowerNet": false,
+    "CutExpansion": "1mm",
+    "SubProjectName": null
+  },
+  "BackDrill": {
+    "Enable": false,
+    "Nets": [],
+    "Stub": {"default":"8mil","Tail": null}
+  },
+  "Ports": {
+    "Enable": true,
+    "PortOnNets": [],
+    "PortbyPins": [{"PosPins":[],"NegPins":[],"Refdes":"","PosNet":"","NegNet":"","Name":null}],
+    "RefNets": [],
+    "OrderPorts": {
+      "Enable": false,
+      "CompOrder": null,
+      "NetOrder": null,
+      "PortOrder": null
+    },
+    "PortOnRLC": false,
+    "IgnoreComponent": [],
+    "IgnorePart": [],
+    "PortZ0": {"SignalRefZ0":50,"PowerRefZ0":0.1}
+  },
+
+  "SolderBall": {
+    "Enable": true,
+    "SolderOnComponents": [],
+    "AutoSolderball": true,
+    "SolderBallSize": {
+      "Default": [
+        "Auto",
+        "Auto"
+      ],
+        "Ratio": [
+            0.7,
+            0.7
+        ]
+    },
+    "PECSize":{
+        "Default": null
+    },
+    "Options":{
+      "SolderMaterial":"solder"
+    }
+},
+
+
+  "Setup": {
+    "Enable": true,
+    "Name": "HFSSAutoSetup",
+    "SolutionType": "HFSS",
+    "Options": {
+      },
+      "Sweep": {
+        "Enable": true,
+        "Name": "sweep1",
+        "Options": {
+          "SweepType": "Interpolating",
+          "InterpolatingTolerance": 0.02,
+          "SweepData": "LIN 0GHz 20GHz 0.01GHz"
+        }
+      }
+  },
+  
+  "PinGroup":{
+    "Enable": true,
+    "RemoveExistPinGroups":false,
+    "Groups":[{"Name":"","Component":"","Pins":[],"Nets":"","Rows":1,"Cols":1}]
+  },
+
+  "Source":{
+    "Enable": true,
+    "RemoveExistSources":true,
+    "SourceDefs":{}
+  },
+
+  "Airbox":{
+    "Enable":true,
+    "Options":{
+      "ExtentType":"OrientedBboxExtent",
+      "DielExtentType":"OrientedBboxExtent",
+      "DielExt/Ext":"0",
+      "DielExt/Dim":false,
+      "AirHorExt/Ext":"1.5mm",
+      "AirHorExt/Dim":true,
+      "AirPosZExt/Ext":"1.5mm",
+      "AirPosZExt/Dim":true,
+      "AirNegZExt/Ext":"1.5mm",
+      "AirNegZExt/Dim":true
+    }
+  },
+
+  "GeometryCheckAndAutofix":{
+    "Enable":false,
+    "Options":{
+      "Self-Intersecting Polygons": true, 
+      "Disjoint Nets (Floating Nodes)": true, 
+      "DC-Short Errors": true, 
+      "Identical/Overlapping Vias": true, 
+      "Misaligments":true
+    }
+  },
+
+  "PadStack": {
+    "Enable": true,
+    "V77.*":{"PlatingPercent":"20"}
+  },
+
+  "Analysis": {
+    "Enable": true,
+    "host":"localhost",
+    "AnalysisWithAedt": false,
+    "BatchMode":false,
+    "SaveArchive":true,
+    "Cores": 4,
+    "HPCType":"Pack",
+    "ExportSNP": true,
+    "ExportProfile": true,
+    "ExportConvergence": true,
+    "SnpPath": null
+  }
+}

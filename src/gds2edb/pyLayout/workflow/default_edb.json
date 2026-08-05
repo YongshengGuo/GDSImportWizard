@@ -1,0 +1,40 @@
+{
+  "Header": {
+    "Version": 0.1,
+    "Date": 20260112,
+    "UserID": "xxx",
+    "Comment": "Comment",
+    "Name": null
+  },
+  "AEDT": {
+    "Version": null,
+    "InstallPath": null,
+    "UsePyaedt": false,
+    "LogPath":null
+  },
+  "Import": {
+    "Enable": true,
+    "EdbPath": null,
+    "RemoveAedt": false
+  },
+
+  "Net": {
+    "Enable": true,
+    "MergePhysicallyConnected":false,
+    "MergeShortNets":false,
+    "DisjointNets":false
+  },
+
+  "SIwaveOption": {
+    "Enable": true,
+    "Options":{}
+  },
+
+  "Export": {
+    "Enable": true,
+    "ExportSIwave": true,
+    "SIwavePath":null,
+    "Options":{}
+  }
+
+}

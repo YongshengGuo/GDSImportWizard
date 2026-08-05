@@ -1,0 +1,56 @@
+ 
+Ansys Electronics Desktop Version 2026.1.0, Build: 2026-02-02 02:17:35
+Location: C:\Program Files\ANSYS Inc\v261\AnsysEM\ansysedt.exe
+Batch Script: C:/work/Study/Script/Ansys/quickAnalyze/FastSim/pyLayout/workflow/batchSim.py
+Starting Batch Run: 9:58:12 AM  Apr 19, 2026
+Running as user : SYNOPSYS\yguo
+Temp directory: C:\Users\yguo\AppData\Local\Temp
+Project directory: C:\Users\yguo\Documents\Ansoft
+-- Message Window --
+      *Global - Messages
+        [error]   File "C:\work\Study\Script\Ansys\quickAnalyze\FastSim\pyLayout\common\common.py", line 793                          log.info(f"Subprocess {idx} completed successfully.")                                      ^  SyntaxError: invalid syntax    In file "C:/work/Study/Script/Ansys/quickAnalyze/FastSim/pyLayout/workflow/batchSim.py", line 21 ---- While executing script: C:/work/Study/Script/Ansys/quickAnalyze/FastSim/pyLayout/workflow/batchSim.py
+        [error] Error executing script in C:/work/Study/Script/Ansys/quickAnalyze/FastSim/pyLayout/workflow/batchSim.py:
+-- Message Window --
+Stopping Batch Run: 9:58:29 AM  Apr 19, 2026
+ 
+Ansys Electronics Desktop Version 2026.1.0, Build: 2026-02-02 02:17:35
+Location: C:\Program Files\ANSYS Inc\v261\AnsysEM\ansysedt.exe
+Batch Script: C:/work/Study/Script/Ansys/quickAnalyze/FastSim/pyLayout/workflow/batchSim.py
+Starting Batch Run: 10:06:41 AM  Apr 19, 2026
+Running as user : SYNOPSYS\yguo
+Temp directory: C:\Users\yguo\AppData\Local\Temp
+Project directory: C:\Users\yguo\Documents\Ansoft
+-- Message Window --
+      *Global - Messages
+        [error]   File "C:\work\Study\Script\Ansys\quickAnalyze\FastSim\pyLayout\common\common.py", line 793                          log.info(f"Subprocess {idx} completed successfully.")                                      ^  SyntaxError: invalid syntax    In file "C:/work/Study/Script/Ansys/quickAnalyze/FastSim/pyLayout/workflow/batchSim.py", line 38 ---- While executing script: C:/work/Study/Script/Ansys/quickAnalyze/FastSim/pyLayout/workflow/batchSim.py
+        [error] Error executing script in C:/work/Study/Script/Ansys/quickAnalyze/FastSim/pyLayout/workflow/batchSim.py:
+-- Message Window --
+Stopping Batch Run: 10:07:00 AM  Apr 19, 2026
+ 
+Ansys Electronics Desktop Version 2026.1.0, Build: 2026-02-02 02:17:35
+Location: C:\Program Files\ANSYS Inc\v261\AnsysEM\ansysedt.exe
+Batch Script: C:/work/Study/Script/Ansys/quickAnalyze/FastSim/pyLayout/workflow/batchSim.py
+Starting Batch Run: 10:10:41 AM  Apr 19, 2026
+Running as user : SYNOPSYS\yguo
+Temp directory: C:\Users\yguo\AppData\Local\Temp
+Project directory: C:\Users\yguo\Documents\Ansoft
+-- Message Window --
+      *Global - Messages
+        [error]   File "C:\work\Study\Script\Ansys\quickAnalyze\FastSim\pyLayout\common\common.py", line 793                          log.info(f"Subprocess {idx} completed successfully.")                                      ^  SyntaxError: invalid syntax    In file "C:/work/Study/Script/Ansys/quickAnalyze/FastSim/pyLayout/workflow/batchSim.py", line 37 ---- While executing script: C:/work/Study/Script/Ansys/quickAnalyze/FastSim/pyLayout/workflow/batchSim.py
+        [error] Error executing script in C:/work/Study/Script/Ansys/quickAnalyze/FastSim/pyLayout/workflow/batchSim.py:
+-- Message Window --
+Stopping Batch Run: 10:13:59 AM  Apr 19, 2026
+ 
+Ansys Electronics Desktop Version 2026.1.0, Build: 2026-02-02 02:17:35
+Location: C:\Program Files\ANSYS Inc\v261\AnsysEM\ansysedt.exe
+Batch Script: C:/work/Study/Script/Ansys/quickAnalyze/FastSim/pyLayout/workflow/batchSim.py
+Starting Batch Run: 10:21:55 AM  Apr 19, 2026
+Running as user : SYNOPSYS\yguo
+Temp directory: C:\Users\yguo\AppData\Local\Temp
+Project directory: C:\Users\yguo\Documents\Ansoft
+-- Message Window --
+      *Global - Messages
+        [error] ValueErrorException: Attempted relative import in non-package  In file "C:/work/Study/Script/Ansys/quickAnalyze/FastSim/pyLayout/workflow/batchSim.py", line 40 ---- While executing script: C:/work/Study/Script/Ansys/quickAnalyze/FastSim/pyLayout/workflow/batchSim.py
+        [error] Error executing script in C:/work/Study/Script/Ansys/quickAnalyze/FastSim/pyLayout/workflow/batchSim.py:
+-- Message Window --
+Stopping Batch Run: 10:22:14 AM  Apr 19, 2026

@@ -1,0 +1,48 @@
+Metadata-Version: 2.4
+Name: gds2edb
+Version: 0.1.0
+Summary: Agent-first scaffold for GDSII to EDB conversion
+Author: GDS2EDB Team
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0; extra == "dev"
+Requires-Dist: ruff>=0.5; extra == "dev"
+
+# GDS2EDB
+
+GDS2EDB converts GDSII layout data to EDB with the current project module layout.
+
+This repository is initialized using harness engineering ideas:
+- Keep repository knowledge as the system of record.
+- Keep AGENTS.md short and map-like.
+- Enforce architecture and taste with mechanical checks.
+- Treat plans and quality scoring as first-class artifacts.
+
+## Quick Start
+
+1. Create a virtual environment.
+2. Install in editable mode with dev dependencies.
+3. Run docs and architecture checks.
+
+```bash
+pip install -e .[dev]
+python scripts/check_docs.py
+python scripts/check_architecture.py
+```
+
+## Entry Point
+
+- Primary entry: `src/gds2edb/gds2edb.py`
+- Root launcher: `gds2edb.py`
+- UI entry: `src/gds2edb/gdsImportWizard.py`
+- UI launcher: `gdsImportWizard.py`
+
+## Repository Map
+
+- `AGENTS.md`: short operating map for agents.
+- `ARCHITECTURE.md`: layered design constraints.
+- `docs/`: system of record for design, plans, and product specs.
+- `scripts/`: mechanical checks.
+- `src/gds2edb/`: application code.
+- `tests/`: test suite.

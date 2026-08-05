@@ -1,0 +1,3 @@
+pyaedt
+pywin32
+pythonnet
