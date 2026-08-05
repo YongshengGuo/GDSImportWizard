@@ -1,3 +1,14 @@
+中文 Help: https://yongshengguo.github.io/GDSImportWizard/en/index.html  
+English Help: https://yongshengguo.github.io/GDSImportWizard/en/index.html  
+
+Note: 
+1. GDSImportWizard 6.x只适合AEDT 2025之后的版本，需要通过python运行，不能通过AEDT->Run Script执行。  
+2. 如果需要Ironpython版本或者2025之前的版本，建议使用GDSImportWizard 5.x版本, 可以通过AEDT->Run Script执行。 
+
+Note(EN): 
+1. GDSImportWizard 6.x is only compatible with AEDT versions 2025 and later. It must be executed via Python and cannot be run through AEDT → Run Script.  
+2. If you require an IronPython version or need to use a version prior to 2025, it is recommended to use GDSImportWizard 5.x, which can be executed through AEDT → Run Script.
+
 # GDS2EDB
 
 GDS2EDB 是一个用于将 GDSII 版图数据转换为 Ansys EDB 的工具集，支持命令行与图形界面两种使用方式。
