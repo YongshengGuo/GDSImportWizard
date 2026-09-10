@@ -389,7 +389,7 @@ class Sources(Primitives):
         
     def addSourceByDict(self,dict1):
         '''
-        type,pt0=None,pt1=None,layer=None,posPins=None,refPins=None,compName=None,posNet=None,negNet=None,name=None,magnitude=None,resistance=None
+        {type=None,pt0=None,pt1=None,layer=None,posPins=None,refPins=None,compName=None,posNet=None,negNet=None,name=None,magnitude=None,resistance=None}
         
         
         

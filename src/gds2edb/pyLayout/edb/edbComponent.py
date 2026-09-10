@@ -9,7 +9,7 @@ pingroup for edb function
 import os,sys,re
 from ..common.common import *
 from ..common.complexDict import ComplexDict
-from ..primitive.geometry import Point,Polygen
+from ..primitive.geometry import Point,Polygon
 
 from .edbDefinition import EdbDefinition,EdbDefinitions
 from .edbVia import EdbVia,getViaName

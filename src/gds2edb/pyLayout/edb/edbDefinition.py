@@ -15,7 +15,7 @@ try:
     _clr = initClr()
     from System import String
 except:
-    log.warning("CLR initialization failed in child process (likely duplicate init). Ignoring if not needed.")
+    log.debug("CLR initialization failed in child process (likely duplicate init). Ignoring if not needed.")
 
 # from System import String
 

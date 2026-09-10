@@ -18,7 +18,7 @@ from ..common.complexDict import ComplexDict
 from ..common.unit import Unit
 from ..common.common import log,tuple2list
 from .definition import Definitions,Definition
-from ..primitive.geometry import Point,Polygen
+from ..primitive.geometry import Point,Polygon
 
 class PadStack(Definition):
     '''

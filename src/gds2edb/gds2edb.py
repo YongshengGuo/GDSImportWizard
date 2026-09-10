@@ -22,6 +22,8 @@ from miptTech import MiptTech
 from ictTech import IctTech
 from controlXml import ControlXml
 
+from options import options  # type: ignore, global variable to store options
+
 print("Note:This program only supports 3D Lalyout 2025R2, earlier versions are recommended to use V5. x version")
 
 
@@ -184,15 +186,12 @@ class GDS2Edb(object):
 
     def runAedtPost(self, edb_path):
         from pyLayout import log,Layout  # type: ignore
-        from options import options  # type: ignore
-        layout = Layout(installDir=options["AedtInstallDir"],usePyAedt=options["UsePyaedt"] if "UsePyaedt" in options else False)
+        grpc = os.environ["AEDT_Specific_Grpc_Port"] if "AEDT_Specific_Grpc_Port" in os.environ else None
+        layout = Layout(installDir=options["AedtInstallDir"],usePyAedt=options["UsePyaedt"] if "UsePyaedt" in options else False,grpc=grpc)
         layout.importEdb(str(edb_path))
         layout.release()
         
-
-
-def gds2edbBatch(parser):
-    g2e = GDS2Edb()
+def parserArgs(parser):
     #1. update options from cfg file
     if "cfgFile" in options and options["cfgFile"] and options["cfgFile"] != "NA":
         #判定cfg文件是否存在，如果存在则读取，如果不存在则抛出异常
@@ -201,10 +200,34 @@ def gds2edbBatch(parser):
         else:
             print("cfgFile: %s not exist"%options["cfgFile"])
             exit()
-        
-        g2e.readOptions(options["cfgFile"])
+        options.readCfgOption(options["cfgFile"])
     else:
-        g2e.readOptions()
+        options.readOptions()
+
+    #2. update options from environ
+    options.updateEnvOption()
+    #3. update options from args
+    options.updateFromArgs(parser)
+    if "AedtVersion" in options and options["AedtVersion"] != "NA":
+        options["AedtInstallDir"] = getInstallPath(options["AedtVersion"])
+    else:
+        options["AedtInstallDir"] = getInstallPath()
+
+
+def gds2edbBatch():
+    g2e = GDS2Edb()
+    # #1. update options from cfg file
+    # if "cfgFile" in options and options["cfgFile"] and options["cfgFile"] != "NA":
+    #     #判定cfg文件是否存在，如果存在则读取，如果不存在则抛出异常
+    #     if os.path.exists(options["cfgFile"]):
+    #         print("cfgFile: %s"%options["cfgFile"])
+    #     else:
+    #         print("cfgFile: %s not exist"%options["cfgFile"])
+    #         exit()
+        
+    #     g2e.readOptions(options["cfgFile"])
+    # else:
+    #     g2e.readOptions()
 
     #2. update options from environ
     options.updateEnvOption()
@@ -267,7 +290,8 @@ def main():
     
     known_args, unknown_args = options.updateFromArgs(parser)
     if known_args["techFile"]:
-        gds2edbBatch(parser)
+        parserArgs(parser)
+        gds2edbBatch()
     else:
         parser.print_help()
 

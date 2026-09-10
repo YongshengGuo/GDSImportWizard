@@ -9,14 +9,14 @@ pingroup for edb function
 import os,sys,re,math
 from ..common.common import *
 from ..common.complexDict import ComplexDict
-from ..primitive.geometry import Point,Polygen
+from ..primitive.geometry import Point,Polygon
 from .edbDefinition import EdbDefinition,EdbDefinitions
 
 try:
     _clr = initClr()
     from System import String
 except:
-    log.warning("CLR initialization failed in child process (likely duplicate init). Ignoring if not needed.")  
+    log.debug("CLR initialization failed in child process (likely duplicate init). Ignoring if not needed.")  
 # from System import String
 
 appPath = os.path.realpath(__file__)

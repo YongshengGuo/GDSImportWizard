@@ -24,24 +24,12 @@ appPath = os.path.realpath(__file__)
 appDir = os.path.split(appPath)[0] 
 sys.path.append(appDir)
 
-#for python
-# if not isPython or is_linux:
-# if isIronpython:
-#     import clr as _clr # @UnresolvedImport
-# elif is_linux:
-#     try:
-#         from ansys.aedt.core.generic.clr_module import _clr # @UnresolvedImport
-#     except:
-#         log.info("Make sure pyaedt have installed on linux: pip install pyaedt")
-#         from ansys.aedt.core.internal.clr_module import _clr # @UnresolvedImport
-# else:
-#     #for windows
-#     import clr as _clr # @UnresolvedImport
+
 try:
     _clr = initClr()
     from System import String
 except:
-    log.warning("CLR initialization failed in child process (likely duplicate init). Ignoring if not needed.")
+    log.debug("CLR initialization failed in child process (likely duplicate init). Ignoring if not needed.")
 
 def edbToSIwave(edbPath,siwPath=None,installDir=None):
 #     log.info(str(installDir)) #for debug

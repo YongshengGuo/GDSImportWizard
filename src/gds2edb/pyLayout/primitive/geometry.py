@@ -5,6 +5,7 @@
 
 import sys
 import math
+import json
 from ..common.unit import Unit
 from ..common.common import log
 
@@ -18,7 +19,18 @@ class Point(object):
         self.x = 0
         self.y = 0
         self.arc = arc
+        if pt is not None:
+            self.setPoint(pt)
         
+        if layout:
+            self.layout = layout
+        else:
+            try:
+                self.layout = sys.modules["__main__"].layout
+            except:
+                self.layout = None #for edbApp
+
+    def setPoint(self, pt):
         if isinstance(pt, (list,tuple)):
             self.x = pt[0]
             self.y = pt[1]
@@ -28,6 +40,7 @@ class Point(object):
         elif isinstance(pt, self.__class__):
             self.x = pt.x
             self.y = pt.y
+            self.arc = pt.arc
         elif isinstance(pt,str):
             xy = pt.split(',')
             if len(xy)!=2:
@@ -37,13 +50,8 @@ class Point(object):
         else:
             log.debug("Point init error")
             
-        if layout:
-            self.layout = layout
-        else:
-            try:
-                self.layout = sys.modules["__main__"].layout
-            except:
-                self.layout = None #for edbApp
+        if self.y and Unit(self.y).V>1e300:
+            self.arc = True
             
     def __getitem__(self, key):
         """
@@ -103,6 +111,30 @@ class Point(object):
     @property
     def XY(self):
         return self.x,self.y
+
+    def toDict(self):
+        """
+        Serialize point data to dict.
+        layout is excluded because it may be a non-serializable COM object.
+        """
+        return {
+            "x": self.x,
+            "y": self.y,
+            "arc": self.arc,
+        }
+
+    @classmethod
+    def fromDict(cls, data, layout=None):
+        if not isinstance(data, dict):
+            log.exception("Point.fromDict input must be dict: %s" % str(type(data)))
+        return cls([data.get("x", 0), data.get("y", 0)], layout=layout)
+
+    def toJson(self):
+        return json.dumps(self.toDict())
+
+    @classmethod
+    def fromJson(cls, data, layout=None):
+        return cls.fromDict(json.loads(data), layout=layout)
         
     def __add__(self,u):
         if isinstance(u, self.__class__):
@@ -142,7 +174,7 @@ class Point(object):
         return (dx**2 + dy**2)**0.5
     
     
-class Polygen(object):
+class Polygon(object):
     
     def __init__(self,pts = None,closed = True,layout = None):
         '''
@@ -167,7 +199,7 @@ class Polygen(object):
                 self.layout = None
     
     @property
-    def H3DLPolygen(self):
+    def H3DLPolygon(self):
         if not self.layout or not self.layout.oEditor:
             return
         
@@ -178,6 +210,37 @@ class Polygen(object):
         if self.closed:
             ply.SetClosed(True)
         return ply
+
+    def toDict(self):
+        """
+        Serialize polygon data to dict.
+        layout is excluded because it may be a non-serializable COM object.
+        """
+        return {
+            "points": [pt.toDict() if isinstance(pt, Point) else Point(pt).toDict() for pt in self.points],
+            "closed": self.closed,
+        }
+
+    @classmethod
+    def fromDict(cls, data, layout=None):
+        if not isinstance(data, dict):
+            log.exception("Polygon.fromDict input must be dict: %s" % str(type(data)))
+
+        points = []
+        for pt in data.get("points", []):
+            if isinstance(pt, dict):
+                points.append(Point.fromDict(pt, layout=layout))
+            else:
+                points.append(Point(pt, layout=layout))
+
+        return cls(points, closed=data.get("closed", True), layout=layout)
+
+    def toJson(self):
+        return json.dumps(self.toDict())
+
+    @classmethod
+    def fromJson(cls, data, layout=None):
+        return cls.fromDict(json.loads(data), layout=layout)
     
     def getPerimeter(self):
         n = len(self.points)

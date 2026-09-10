@@ -1,0 +1,1362 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="GDS Import Wizard 6.0 user help and CLI guide">
+      
+      
+      
+      
+        <link rel="prev" href="07-layermap-guide.html">
+      
+      
+      
+        
+          <link rel="alternate" href="../08-csvtech-guide.html" hreflang="zh">
+        
+          <link rel="alternate" href="08-csvtech-guide.html" hreflang="en">
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 8 CSVTech Technical Guide - GDS2EDB Help</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-8-csvtech-technical-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="GDS2EDB Help" class="md-header__button md-logo" aria-label="GDS2EDB Help" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GDS2EDB Help
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 8 CSVTech Technical Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../08-csvtech-guide.html" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="08-csvtech-guide.html" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="01-overview.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  User Manual
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="GDS2EDB Help" class="md-nav__button md-logo" aria-label="GDS2EDB Help" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    GDS2EDB Help
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Manual
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Manual
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01-overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1 Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02-ui-output-edb.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2 UI Mode - Output EDB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03-ui-output-csvtech.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3 UI Mode - Output CSVTech
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04-ui-output-xml.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4 UI Mode - Output XML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05-cli-mode.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5 CLI Mode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06-options-reference.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6 Options Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="07-layermap-guide.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7 LayerMap Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8 CSVTech Technical Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="08-csvtech-guide.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8 CSVTech Technical Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#81-what-csvtech-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 What CSVTech Is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-two-templates-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Two Templates at a Glance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-csvtech_overlapping_templatecsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 CSVTech_overlapping_template.csv
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3 CSVTech_overlapping_template.csv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#831-template-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3.1 Template Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#832-reading-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3.2 Reading Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#833-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3.3 Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#84-csvtech_laminate_templatecsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 CSVTech_laminate_template.csv
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 CSVTech_laminate_template.csv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#841-template-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.1 Template Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#843-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.3 Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#85-how-to-choose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 How to Choose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#86-recommended-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.6 Recommended Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#87-relationship-to-other-chapters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.7 Relationship to Other Chapters
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#81-what-csvtech-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 What CSVTech Is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-two-templates-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Two Templates at a Glance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-csvtech_overlapping_templatecsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 CSVTech_overlapping_template.csv
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3 CSVTech_overlapping_template.csv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#831-template-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3.1 Template Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#832-reading-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3.2 Reading Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#833-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3.3 Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#84-csvtech_laminate_templatecsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 CSVTech_laminate_template.csv
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 CSVTech_laminate_template.csv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#841-template-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.1 Template Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#843-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.3 Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#85-how-to-choose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 How to Choose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#86-recommended-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.6 Recommended Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#87-relationship-to-other-chapters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.7 Relationship to Other Chapters
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="index.html" class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="01-overview.html" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    User Manual
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-8-csvtech-technical-guide">Chapter 8 CSVTech Technical Guide</h1>
+<p>This chapter follows the sample CSV structure more closely. It keeps the template names, the field meanings, and the sample rows so you can compare your file against the documented format.</p>
+<h2 id="81-what-csvtech-is">8.1 What CSVTech Is</h2>
+<p>CSVTech uses a CSV file to describe a customized Technology File. You can organize layer data in a spreadsheet-like format and reuse it for import, sharing, later editing, or template-based extension.
+All supported Technology Files can be converted to CSV Tech for secondary editing and sharing.
+If you do not have a suitable Technology File, you can manually edit CSV Tech according to the known stackup and then import the GDS file.</p>
+<h2 id="82-two-templates-at-a-glance">8.2 Two Templates at a Glance</h2>
+<table>
+<thead>
+<tr>
+<th>Template</th>
+<th>Chinese description</th>
+<th>When to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CSVTech_overlapping_template.csv</td>
+<td>Explicit dielectric definition, with dielectric and metal/via defined separately</td>
+<td>Best when you want to describe dielectric details in full</td>
+</tr>
+<tr>
+<td>CSVTech_laminate_template.csv</td>
+<td>Implicit dielectric definition, with less input data</td>
+<td>Best when you want to organize the stackup quickly</td>
+</tr>
+</tbody>
+</table>
+<h2 id="83-csvtech_overlapping_templatecsv">8.3 CSVTech_overlapping_template.csv</h2>
+<p>This template is suited for any stackup. Dielectrics and metals are defined separately.</p>
+<h3 id="831-template-example">8.3.1 Template Example</h3>
+<table border="1" style="width: 100%; height: auto; font-size: 0.6em; line-height: 1.35; table-layout: auto; white-space: normal; overflow-wrap: anywhere; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th>NO</th><th>LayerName</th><th>Type</th><th>LayerMap</th><th>TextLayerMap</th><th>Thickness</th><th>Height</th><th>LowerLayer</th><th>UpperLayer</th><th>DK</th><th>DF</th><th>Cond</th><th>TC1</th><th>TC2</th><th>Tref</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>1</td><td>UF1</td><td>D</td><td></td><td></td><td>35</td><td>107.64</td><td></td><td></td><td>3.7</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>2</td><td>PASS4</td><td>D</td><td></td><td></td><td>0.6</td><td>107.04</td><td></td><td></td><td>8.1</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>3</td><td>PASS3b</td><td>D</td><td></td><td></td><td>0.4</td><td>106.64</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>4</td><td>PASS3a</td><td>D</td><td></td><td></td><td>1.45</td><td>105.19</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>5</td><td>PASS2</td><td>D</td><td></td><td></td><td>0.7</td><td>104.49</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>6</td><td>PASS1</td><td>D</td><td></td><td></td><td>0.075</td><td>104.415</td><td></td><td></td><td>8.1</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>7</td><td>IMD3c</td><td>D</td><td></td><td></td><td>0.725</td><td>103.69</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>8</td><td>IMD3b</td><td>D</td><td></td><td></td><td>0.05</td><td>103.64</td><td></td><td></td><td>8.1</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>9</td><td>IMD3a</td><td>D</td><td></td><td></td><td>0.62</td><td>103.02</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>10</td><td>IMD2g</td><td>D</td><td></td><td></td><td>0.05</td><td>102.97</td><td></td><td></td><td>5</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>11</td><td>IMD2f</td><td>D</td><td></td><td></td><td>0.725</td><td>102.245</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>12</td><td>IMD2e</td><td>D</td><td></td><td></td><td>0.05</td><td>102.195</td><td></td><td></td><td>8.1</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>13</td><td>IMD2d</td><td>D</td><td></td><td></td><td>0.322</td><td>101.873</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>14</td><td>IMD2c</td><td>D</td><td></td><td></td><td>0.08</td><td>101.793</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>15</td><td>IMD2b</td><td>D</td><td></td><td></td><td>0.018</td><td>101.775</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>16</td><td>IMD2a</td><td>D</td><td></td><td></td><td>0.2</td><td>101.575</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>17</td><td>IMD1c</td><td>D</td><td></td><td></td><td>0.05</td><td>101.525</td><td></td><td></td><td>5</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>18</td><td>IMD1b</td><td>D</td><td></td><td></td><td>0.725</td><td>100.8</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>19</td><td>IMD1a</td><td>D</td><td></td><td></td><td>0.05</td><td>100.75</td><td></td><td></td><td>8.1</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>20</td><td>ILD</td><td>D</td><td></td><td></td><td>0.75</td><td>100</td><td></td><td></td><td>4</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>21</td><td>substrate</td><td>D</td><td></td><td></td><td>100</td><td>0</td><td></td><td></td><td>11.9</td><td></td><td>10</td><td></td><td></td><td></td></tr>
+        <tr><td>22</td><td>PASSB1</td><td>D</td><td></td><td></td><td>0.8</td><td>-0.8</td><td></td><td></td><td>6.7</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>23</td><td>PASSB2b</td><td>D</td><td></td><td></td><td>2</td><td>-2.8</td><td></td><td></td><td>6.7</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>24</td><td>PASSB2a</td><td>D</td><td></td><td></td><td>0.4</td><td>-3.2</td><td></td><td></td><td>6.7</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>25</td><td>underFill_C</td><td>D</td><td></td><td></td><td>0.001</td><td>-3.201</td><td></td><td></td><td>6.7</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>26</td><td>ubump</td><td>C</td><td>170;0 74;0</td><td>125;0</td><td>0.001</td><td>142.639</td><td></td><td></td><td></td><td></td><td>5.80E+07</td><td>0.00E+00</td><td>0.00E+00</td><td>2.50E+01</td></tr>
+        <tr><td>27</td><td>metal4</td><td>C</td><td>74;0</td><td></td><td>1.45</td><td>105.19</td><td></td><td></td><td></td><td></td><td>5.80E+07</td><td>3.89E-03</td><td>-1.50E-07</td><td>2.50E+01</td></tr>
+        <tr><td>28</td><td>metal3</td><td>C</td><td>33;40</td><td></td><td>0.85</td><td>103.565</td><td></td><td></td><td></td><td></td><td>5.80E+07</td><td>3.63E-03</td><td>-1.39E-06</td><td>2.50E+01</td></tr>
+        <tr><td>29</td><td>metal2</td><td>C</td><td>32;40</td><td></td><td>0.85</td><td>102.12</td><td></td><td></td><td></td><td></td><td>5.80E+07</td><td>3.63E-03</td><td>-1.39E-06</td><td>2.50E+01</td></tr>
+        <tr><td>30</td><td>ctm</td><td>C</td><td></td><td></td><td>0.08</td><td>101.793</td><td></td><td></td><td></td><td></td><td>5.80E+07</td><td>0.00E+00</td><td>0.00E+00</td><td>2.50E+01</td></tr>
+        <tr><td>31</td><td>cbm</td><td>C</td><td></td><td></td><td>0.2</td><td>101.575</td><td></td><td></td><td></td><td></td><td>5.80E+07</td><td>0.00E+00</td><td>0.00E+00</td><td>2.50E+01</td></tr>
+        <tr><td>32</td><td>metal1</td><td>C</td><td>31;40</td><td></td><td>0.85</td><td>100.675</td><td></td><td></td><td></td><td></td><td>5.80E+07</td><td>3.63E-03</td><td>-1.39E-06</td><td>2.50E+01</td></tr>
+        <tr><td>33</td><td>mb1</td><td>C</td><td>31;100</td><td></td><td>0.001</td><td>-0.801</td><td></td><td></td><td></td><td></td><td>5.80E+07</td><td>0.00E+00</td><td>0.00E+00</td><td>2.50E+01</td></tr>
+        <tr><td>34</td><td>ubmb</td><td>C</td><td>170;100</td><td>125;100</td><td>0.001</td><td>-3.201</td><td></td><td></td><td></td><td></td><td>5.80E+07</td><td>0.00E+00</td><td>0.00E+00</td><td>2.50E+01</td></tr>
+        <tr><td>36</td><td>via4</td><td>V</td><td>86;0</td><td></td><td></td><td></td><td>metal4</td><td>ubump</td><td></td><td></td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>37</td><td>via3</td><td>V</td><td>85;0</td><td></td><td></td><td></td><td>metal3</td><td>metal4</td><td></td><td></td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>38</td><td>via2</td><td>V</td><td>52;40</td><td></td><td></td><td></td><td>metal2</td><td>metal3</td><td></td><td></td><td>5.80E+07</td><td>3.63E-03</td><td>-1.39E-06</td><td></td></tr>
+        <tr><td>39</td><td>ctm_via</td><td>V</td><td></td><td></td><td></td><td></td><td>ctm</td><td>metal2</td><td></td><td></td><td>5.80E+07</td><td>0.00E+00</td><td>0.00E+00</td><td></td></tr>
+        <tr><td>40</td><td>cbm_via</td><td>V</td><td></td><td></td><td></td><td></td><td>cbm</td><td>metal2</td><td></td><td></td><td>5.80E+07</td><td>0.00E+00</td><td>0.00E+00</td><td></td></tr>
+        <tr><td>41</td><td>via1</td><td>V</td><td>51;40</td><td></td><td></td><td></td><td>metal1</td><td>metal2</td><td></td><td></td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>42</td><td>tsv</td><td>V</td><td>251;0 86;0</td><td></td><td></td><td></td><td>mb1</td><td>metal1</td><td></td><td></td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>43</td><td>pmb</td><td>V</td><td>5;100</td><td></td><td></td><td></td><td>ubmb</td><td>mb1</td><td></td><td></td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>44</td><td>tsv</td><td>I</td><td></td><td></td><td>0.15</td><td></td><td></td><td></td><td>4</td><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+</table>
+
+<h3 id="832-reading-rules">8.3.2 Reading Rules</h3>
+<ol>
+<li>LayerName is the stackup layer name used by 3D Layout and should be present.</li>
+<li>Type meanings: C = Conductor/Metal layer, V = Via layer, D = Dielectric layer, I = Insulating layer.</li>
+<li>Via Group and SnapViaGroups are implemented on all Via layers.</li>
+<li>Insulating layer defines TSV insulation thickness and must have a LayerName defined in Via Layers.</li>
+<li>LayerMap indicates the layer mapping in GDS.</li>
+<li>Conductor/Metal and Via layers must have LayerMap value or they will be ignored.</li>
+<li>Multiple LayerMap mappings can be written in one layer, separated by spaces, for example <code>86;0 85;0</code>.</li>
+<li>TextLayerMap indicates the layer used to extract net list in GDS.</li>
+<li>Thickness is the layer thickness, and the default unit is um.</li>
+<li>Height indicates the position of the layer in the stackup.</li>
+<li>All Height values refer to the lower boundary of the layer.</li>
+<li>If dielectric Height is omitted, the height is accumulated from the dielectric thickness in reverse order.</li>
+<li>If metal and via Height are omitted, the height is accumulated from metal and via thickness in reverse order.</li>
+<li>The last dielectric layer is the origin; all D/C/V Height values reference this origin, and negative values are accepted.</li>
+<li>LowerLayer and UpperLayer define the start and end layers of a via layer.</li>
+<li>If LowerLayer and UpperLayer are not given, adjacent layers are used.</li>
+<li>LowerLayer and UpperLayer determine via thickness and have higher priority than via Thickness.</li>
+<li>DK, DF, and Cond are used to set material properties.</li>
+<li>TC1, TC2, and Tref are temperature coefficients for conductivity corner analysis.</li>
+<li>Temperature-dependent material will be used if UseTemperatureDependMaterial is checked in the GUI.</li>
+</ol>
+<h3 id="833-notes">8.3.3 Notes</h3>
+<pre><code class="language-text">#Note:
+1 lines beginning with # will be considered comments
+2 lines without Type value will be ignored
+3 Type definition, C : Conductor/Metal layer, V : Via layer, D : Dielectric layer, I : Insulating layer
+4 Conductor/Metal and Via layer must have LayerMap value, or will be ignore
+5 Dielectric Layer Height is optional, if present the dielectrics will be reorder by the height
+6 Conductor/Metal layer Height is must be given in overlapping templete, it will be reorder by Height
+7 Via layer Height and Thickness will be definited by LowerLayer and UpperLayer
+8 Insulating layer is designed to define TSV insulation thickness, it must have a LayerName that have defined in Via Layers, or will be ignore
+9 All Height indicate the lower of the layer
+10 All length unit is default in microns
+</code></pre>
+<h2 id="84-csvtech_laminate_templatecsv">8.4 CSVTech_laminate_template.csv</h2>
+<p>This laminate template is simplified and more like a PCB/Package application. Dielectrics are not listed as standalone D rows in this template.</p>
+<h3 id="841-template-example">8.4.1 Template Example</h3>
+<table border="1" style="width: 100%; height: auto; font-size: 0.6em; line-height: 1.35; table-layout: auto; white-space: normal; overflow-wrap: anywhere; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th>NO</th><th>LayerName</th><th>Type</th><th>LayerMap</th><th>TextLayerMap</th><th>Thickness</th><th>Height</th><th>DK</th><th>DF</th><th>Cond</th><th>TC1</th><th>TC2</th><th>Tref</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>1</td><td>TOP_UBM</td><td>C</td><td>214;0</td><td>214;0</td><td>44.5</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>2</td><td>PI1</td><td>V</td><td>11;0</td><td></td><td>3</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>3</td><td>RDL1</td><td>C</td><td>1;0</td><td></td><td>4</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>4</td><td>PI2</td><td>V</td><td>12;0</td><td></td><td>3</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>5</td><td>RDL2</td><td>C</td><td>2;0</td><td></td><td>4</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>6</td><td>PI3</td><td>V</td><td>13;0</td><td></td><td>3</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>7</td><td>RDL3</td><td>C</td><td>3;0</td><td></td><td>4</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>8</td><td>tsv</td><td>V</td><td>14;0</td><td></td><td>3</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>9</td><td>RDL4</td><td>C</td><td>4;0</td><td></td><td>4</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>10</td><td>PI5</td><td>V</td><td>15;0</td><td></td><td>3</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>11</td><td>BOT_UBM</td><td>C</td><td>215;0</td><td></td><td>58</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>12</td><td>tsv</td><td>I</td><td></td><td></td><td>0.15</td><td></td><td>4</td><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+</table>
+<ol>
+<li>The start and end layer are considered the adjacent layers.</li>
+<li>Via Group and SnapViaGroups are implemented on all Via layers.</li>
+<li>Insulating layer defines TSV insulation thickness and must have a LayerName defined in Via Layers.</li>
+<li>LayerMap indicates the layer mapping in GDS.</li>
+<li>Conductor/Metal and Via layers must have LayerMap value or they will be ignored.</li>
+<li>Multiple LayerMap mappings can be written in one layer, separated by spaces, for example <code>86;0 85;0</code>.</li>
+<li>TextLayerMap indicates the layer used to extract net list in GDS.</li>
+<li>Thickness must be set for Metal/Via layers, and the default unit is um.</li>
+<li>Height indicates the position of the layer in the stackup.</li>
+<li>All heights are accumulated from the thickness of Metal and Via layers in reverse order.</li>
+<li>Manually setting Height is not suggested.</li>
+<li>DK and DF are used for filled material.</li>
+<li>Cond is used for the metal/via material.</li>
+<li>TC1, TC2, and Tref are the temperature coefficients of conductivity.</li>
+<li>Temperature-dependent material will be used if UseTemperatureDependMaterial is checked in the GUI.</li>
+</ol>
+<h3 id="843-notes">8.4.3 Notes</h3>
+<pre><code class="language-text">1 LayerName is the names will be used in 3D Layout stackup, should be present.
+2 Type, C : Conductor/Metal layer, V : Via layer, D : Dielectric layer, I : Insulating layer
+    Dielectric layer (type D) should be never present in this laminate template.
+    The start and end layer is considered as the adjacent layers
+    Via Group and SnapViaGroups will be implemented on all Via layers.
+    Insulating layer is designed to define TSV insulation thickness, it must have a LayerName that have defined in Via Layers, or will be ignore
+3 LayerMap indicates the layer mapping in GDS file.
+    Conductor/Metal and Via layer must have LayerMap value or will be ignore.
+    Multiple layermap Mapping could set to one layer separated with space, e.g. 86;0 85;0
+4 TextLayerMap indicates which layer used to extract net list in GDS,
+    the layermap in GDS should have net information.
+5 Thickness must set for Metals/Vias layer thickness, the default unit is um.
+6 Height indicates position of the layer in stackup
+    All the height will be obtained by accumulating the thickness of Metal and Vias layer (invert order)
+    Manually set the height value is not suggested.
+</code></pre>
+<h2 id="85-how-to-choose">8.5 How to Choose</h2>
+<ol>
+<li>CSVTech_laminate and CSVTech_overlapping are both templates for GDS import, and you can choose the one that fits your case best.</li>
+<li>CSVTech_laminate defines dielectric layers implicitly, so it needs less input data and is better when you want to organize the stackup quickly.</li>
+<li>CSVTech_overlapping defines dielectric layers explicitly, so it needs more input data and is better when you want to describe dielectric details in full.</li>
+<li>Fill TextLayerMap if you need net extraction from GDS text.</li>
+<li>Start from CSV if you want to build a technology file step by step and fill in mapping later.</li>
+</ol>
+<h2 id="86-recommended-workflow">8.6 Recommended Workflow</h2>
+<ol>
+<li>Copy the template file first.</li>
+<li>Fill LayerName and LayerMap according to the target process revision.</li>
+<li>For the overlapping template, complete dielectric, metal, and via rows separately.</li>
+<li>For the laminate template, confirm the stackup first and then fill metal/via rows.</li>
+<li>Save the CSV and use it directly as the Technology File in the CSVTech flow.</li>
+</ol>
+<h2 id="87-relationship-to-other-chapters">8.7 Relationship to Other Chapters</h2>
+<ol>
+<li>If you are unsure about LayerMap, read Chapter 7 first.</li>
+<li>If you need to adjust output behavior, review Chapter 6.</li>
+<li>If you export CSV from the GUI, read Chapter 3 first.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="07-layermap-guide.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Chapter 7 LayerMap Guide">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Chapter 7 LayerMap Guide
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.tabs.sections", "navigation.path", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share", "header.autohide", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

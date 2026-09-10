@@ -1460,7 +1460,21 @@ def initClr():
     else:
         # Windows
         try:
-            import clr as _clr
+            try:
+                import clr as _clr
+            except ImportError:
+                # 尝试动态添加 Python.Runtime.dll 的路径
+                import sys
+                import os
+                aedt_root = getAedtInstallPath()
+                if aedt_root:
+                    #C:\Program Files\ANSYS Inc\v261\AnsysEM\commonfiles\CPython\3_10\winx64\Release\python\Lib\site-packages
+                    python_runtime_path = os.path.join(aedt_root, "CommonFiles", "CPython", "3_10", "winx64", "Release", "python", "Lib", "site-packages")
+                    if python_runtime_path not in sys.path:
+                        sys.path.append(python_runtime_path)
+                import clr as _clr
+                    
+                
             global_clr = _clr
             return _clr
         except RuntimeError as e:

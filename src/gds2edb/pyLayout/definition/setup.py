@@ -3,7 +3,7 @@
 #--- @Time: 20260704
 
 from __future__ import absolute_import
-
+from ..common.common import log
 
 def with_metaclass(meta, *bases):
     class TemporaryClass(object):
@@ -28,7 +28,8 @@ class SetupsBase(type):
         elif layout.DesignType == 'HFSS 3D Layout Design':
             from . import hfss3DLayoutSetup as Setups
         else:
-            raise ValueError("Unsupported DesignType: %s" % getattr(layout, "DesignType", None))
+            from . import hfssSetup as Setups # 占位
+            log.warning("Unsupported DesignType: %s" % getattr(layout, "DesignType", None))
 
         # 按当前占位类名分发到对应实现类
         targetClass = getattr(Setups, cls.__name__)
@@ -54,7 +55,8 @@ class SetupBase(type):
         elif layout.DesignType == 'HFSS 3D Layout Design':
             from . import hfss3DLayoutSetup as Setup
         else:
-            raise ValueError("Unsupported DesignType: %s" % getattr(layout, "DesignType", None))
+            from . import hfssSetup as Setup # 占位
+            log.warning("Unsupported DesignType: %s" % getattr(layout, "DesignType", None))
 
         # 按当前占位类名分发到对应实现类
         targetClass = getattr(Setup, cls.__name__)
@@ -79,7 +81,8 @@ class SweepsBase(type):
         elif layout.DesignType == 'HFSS 3D Layout Design':
             from . import hfss3DLayoutSetup as Sweeps
         else:
-            raise ValueError("Unsupported DesignType: %s" % getattr(layout, "DesignType", None))
+            from . import hfssSetup as Sweeps # 占位
+            log.warning("Unsupported DesignType: %s" % getattr(layout, "DesignType", None))
 
         # 按当前占位类名分发到对应实现类
         targetClass = getattr(Sweeps, cls.__name__)
@@ -104,7 +107,8 @@ class SweepBase(type):
         elif layout.DesignType == 'HFSS 3D Layout Design':
             from . import hfss3DLayoutSetup as Sweep
         else:
-            raise ValueError("Unsupported DesignType: %s" % getattr(layout, "DesignType", None))
+            from . import hfssSetup as Sweep # 占位
+            log.warning("Unsupported DesignType: %s" % getattr(layout, "DesignType", None))
 
         # 按当前占位类名分发到对应实现类
         targetClass = getattr(Sweep, cls.__name__)

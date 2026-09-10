@@ -336,8 +336,8 @@ class Primitive(object):
         return list(objs2)
 
     def delete(self):
-        
-        self.Collection.pop(self.Name)
+        if self.Name in self.Collection:
+            self.Collection.pop(self.Name)
         self.layout.oEditor.Delete([self.Name])
         
 

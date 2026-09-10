@@ -31,13 +31,6 @@
     _definitionDict["D"] 或者 _definitionDict["D:*"] 返回所有介质
     
 
-  
-get component information from oEditor.GetComponentInfo API
-
-"layerInfo":['Type: signal', 'TopBottomAssociation: Neither', 'Color: 16711680d', 'IsVisible: true', '  IsVisibleShape: true',
- '  IsVisiblePath: true', '  IsVisiblePad: true', '  IsVisibleHole: true', '  IsVisibleComponent: true', 'IsLocked: false', 
- 'LayerId: 1', 'Index: 1', 'LayerThickness: 3.556e-05', 'IsIgnored: false', 'NumberOfSublayers: 1', 'Material0: copper', 'FillMaterial0: air', 
- 'Thickness0: 3.556e-05meter', 'LowerElevation0: 0.0016256']
 """
 
 
@@ -102,7 +95,7 @@ class Layer(Definition):
                 "SideRoughnessType":"SideRoughness0 Type",
                 "SideRoughness":"SideRoughness0",
                 "UseRoughness":"UseR",
-                "Roughness":{"Key":("Roughness0","BottomRoughness0","SideRoughness0"),"Get": lambda T,B,S: T,"Set": lambda x: [x]*3},
+                "Roughness":{"Key":"self","Get": lambda s:s.Roughness0 ,"Set": lambda s,v:s.setRoughness(v)},
                 "RoughnessType":{"Key":("Roughness0 Type","BottomRoughness0 Type","SideRoughness0 Type"),"Get": lambda T,B,S: T,"Set": lambda x: [x]*3},
                 "EtchAngle":{"Key":"EtchFactor","Get": lambda x: math.degrees(math.atan(float(x))),"Set": lambda x: math.tan(math.radians(float(x)))},
                 }
@@ -473,19 +466,28 @@ class Layer(Definition):
         
     def setRoughness(self,value):
         '''
-        str: '0.5um', '0.5um:2.9'
+        'SideRoughness0: 0.5um, 2.9'
+        str: '0.5um', '0.5um,2.9', '0.5um;0.5um;0.5um'
         list: ['0.5um', '0.5um', '0.5um']
         '''
+        #如果value是str，使用‘，’进行分割，如果分割后不足三个值，则使用最后一个值填充，大于三个值报错
         if isinstance(value, str):
-            self._info.update("Roughness0", value)
-            self._info.update("BottomRoughness0", value)
-            self._info.update("SideRoughness0", value)
-        elif isinstance(value, (list,tuple)) and len(value)==3:
+            parts = value.split(';')
+            if len(parts) == 1:
+                parts = parts * 3
+            elif len(parts) == 2:
+                parts.append(parts[-1])
+            elif len(parts) > 3:
+                log.exception("routhness input msut be as '0.5um' or '0.5um,2.9' or '0.5um;0.5um;0.5um'")
+            value = parts
+
+        if isinstance(value, (list,tuple)) and len(value)==3:
             self._info.update("Roughness0", value[0])
             self._info.update("BottomRoughness0", value[1])
             self._info.update("SideRoughness0", value[2])
+            self._info.update("UseRoughness", True)
         else:
-            log.exception("routhness input msut be as '0.5um' or '0.5um:2.9' or ['0.5um','0.5um','0.5um']")           
+            log.exception("routhness input msut be as '0.5um' or '0.5um,2.9' or '0.5um;0.5um;0.5um'")
             
 
     def offLayer(self,offset = 0, type = "signal"):

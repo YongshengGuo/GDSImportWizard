@@ -10,7 +10,7 @@ isIronpython = "IronPython" in sys.version
 np = None
 plt = None
 rf = None
-
+ 
 
 def _load_touchstone_libs():
     global np, plt, rf
@@ -67,6 +67,29 @@ class Touchstone(object):
         return self.Network.f
     
     @property
+    def freqCount(self):
+        #frequency points
+        return self.Network.frequency.shape[0]
+
+    @property
+    def portCount(self):
+        try:
+            return self.Network.s.shape[1]
+        except (AttributeError):
+            return 0
+    
+    @property
+    def name(self):
+        return self.Network.name
+
+    @property
+    def portNames(self):
+        if isinstance(self.Network.port_names,np.ndarray) or self.Network.port_names != None:
+            return self.Network.port_names
+        
+        return [str(i+1) for i in range(self.portCount)]
+    
+    @property
     def Network(self):
         if self._network is None:
             print("Read SNP file: %s"%self.path)
@@ -87,15 +110,62 @@ class Touchstone(object):
         
         """
         if self._diffNetwork is None:
-            p = int(self.Network.number_of_ports/2)
-            snp = self.Network.copy()
-            z0_mm = snp.z0.copy()
-            z0_mm[:, 0:p] = self.diffZ0  # differential mode impedance
-            z0_mm[:, p:2 * p] = 0.25*self.diffZ0  # common mode impedance
-            snp.se2gmm(p,z0_mm)
-            self._diffNetwork = snp
-            
+            self._diffNetwork = self.getDiffNetwork()
+            # p = int(self.Network.number_of_ports/2)
+            # snp = self.Network.copy()
+            # z0_mm = snp.z0.copy()
+            # z0_mm[:, 0:p] = self.diffZ0  # differential mode impedance
+            # z0_mm[:, p:2 * p] = 0.25*self.diffZ0  # common mode impedance
+            # snp.se2gmm(p,z0_mm)
+            # self._diffNetwork = snp
         return self._diffNetwork
+
+    def getDiffNetwork(self,diffZ0=None):
+        
+        """
+        return differetial S entry
+        DD: 1->4, 2->5,3->6, CC: 7->10,8->11,9-12
+        
+          +------+               +------+
+        1-|P1==P3|-3           1-|d1==d2|-2
+          |      |   =se2gmm=>   |      |
+        2-|P2==P4|-4           3-|c1==c2|-4
+          +------+               +------+
+        
+        """
+        
+        diffZ0 = diffZ0 or self.diffZ0 
+        p = int(self.Network.number_of_ports/2)
+        snp = self.Network.copy()
+        z0_mm = snp.z0.copy()
+        z0_mm[:, 0:p] = diffZ0  # differential mode impedance
+        z0_mm[:, p:2 * p] = 0.25*diffZ0 # common mode impedance
+        snp.se2gmm(p,z0_mm)
+        
+        def intersectionStr(str1,str2):
+            i1 = len(str1)
+            i2 = len(str2)
+            ind = max(i1,i2)
+            temp = ""
+            for i in range(ind):
+                if i>=i1:
+                    temp += str2[i]
+                    continue
+                if i>=i2:
+                    temp += str1[i]
+                    continue
+                if str1[i]==str2[i]:
+                    temp += str1[i]
+                    
+            #去除temp末尾的_
+            temp = temp.rstrip("_")
+                    
+            return  temp
+        
+        portNames = [intersectionStr(self.portNames[i*2],self.portNames[i*2+1]) for i in range(p)] #use self portnames 20260823
+        snp.Network.port_names = portNames + portNames
+        
+        return snp
 
     def _quantity_parser(self,quantity):
         '''
@@ -178,6 +248,29 @@ class Touchstone(object):
         prop = getattr(self.Network, "%s_%s" % (param_type, fmt))
         return prop[:,int(port1)-1, int(port2)-1]
 
+    def _get_single_Lable(self, quantity):
+        fmt, param_type, diff_mode, port1, port2 = self._quantity_parser(quantity)
+        # 获取对应的S参数数据
+        if diff_mode:
+            portCount = self.Network.number_of_ports
+            if portCount % 4 == 0:
+                n = int(portCount / 4)
+            else:
+                raise ValueError('the Network must have 4n port')
+
+            entryOffsetdict = {"DD":[0,0],"DC":[0,2*n],"CD":[2*n,0],"CC":[2*n,2*n]}
+            if diff_mode.upper() not in entryOffsetdict:
+                raise ValueError('diff_mode must be one of DD,DC,CD,CC')
+            offset = entryOffsetdict[diff_mode.upper()]
+            port1 = int(port1) + offset[0]
+            port2 = int(port2) + offset[1]
+            return "{fmt}{param_type}{diff_mode}({port1},{port2})".format(fmt=fmt,param_type=param_type,
+                     diff_mode=diff_mode,port1=self.getPortNameByIndex(port1),port2=self.getPortNameByIndex(port2))
+
+        return "{fmt}{param_type}({port1},{port2})".format(fmt=fmt,param_type=param_type,
+                    port1=self.getPortNameByIndex(port1),port2=self.getPortNameByIndex(port2))
+
+
     def _eval_quantity_expression(self, expr):
         # 提取 quantity 片段并映射成占位符，随后用 AST 安全计算
         token_re = re.compile(
@@ -240,6 +333,27 @@ class Touchstone(object):
 
         return _eval(node)
 
+    def getPortNameByIndex(self,ind):
+        """
+        ind start from 1
+        """
+        return self.portNames[int(ind)-1]
+
+    def getLable(self,quantity):
+        '''
+        有运算表达式直接返回表达式，其他情况返回Port实际名称
+        '''
+        q = quantity.strip()
+        # 含运算符则按表达式处理；否则按单一 quantity 处理
+        if re.search(r'[+\-*/^()]', q):
+            return quantity
+        else:
+            
+
+            return self._get_single_quantity(q)
+        
+        
+
     def get(self,quantity):
         '''
         Network合法的组合格式{PrimaryPropertiesT}_{ComponentFuncT}
@@ -273,19 +387,17 @@ class Touchstone(object):
                 pass
         return self._get_single_quantity(q)
         
-    def plot(self, quantitys, ylabel = None, title=None, ax = None, **kwargs):
+    def plot(self, quantitys, ylabel = None, title=None,labels=None, ax = None, **kwargs):
         '''
         绘制S参数曲线
         quantity: 由两部分组成 1) dB, mag, rad,cangRad, re, im,real, imag, deg, cangDeg 2) s11, s12, s21, s22 3) 差分信号标志dd,cc,dc,cd
         数字默认被分成两部分，比如dB_S1122 -> dB_S(11,22)
         合法输入格式：dB(S11), dB_S11,dB_S(11,22)->db,s,None,11,22 或者 dB(SDD11), dB_SDD11, dB_SDD(11,22)->db,s,dd,11,22    
+        
+        labels: 可选参数，指定每条曲线的标签列表。如果未提供，则使用默认标签。
+        
         注意：所有的Port下标从1开始。
-        假设S参数的Port已经准确排序 1->3, 2->4
-          +------+           
-        1-|P1==P3|-3 
-          |      |   
-        2-|P2==P4|-4     
-          +------+          
+
         
         '''
         quantityList = re.split(r'[,;]+', quantitys)
@@ -294,8 +406,21 @@ class Touchstone(object):
             fig = plt.figure()
             ax = fig.add_subplot(111)
             
-        for quantity, d in zip(quantityList, data):
-            ax.plot(self.Network.f/1e9, d, label=quantity, **kwargs) #Ghz
+        for idx, (quantity, d) in enumerate(zip(quantityList, data)):
+            
+            #获取label
+            if labels is None:
+                label = self._get_single_Lable(quantity)
+            else:
+                if isinstance(labels, str):
+                    labels = re.split(r'[,;]+', labels)
+                    
+                if labels and len(labels) != len(quantityList):
+                    print("waring: labels 的数量和 quantityList不相同，忽略 labels 参数")
+                    labels = quantityList
+                label = labels[idx]
+
+            ax.plot(self.Network.f/1e9, d, label=label, **kwargs) #Ghz
             
         ax.set_xlabel("Frequency [GHz]")
         if ylabel:
@@ -476,9 +601,9 @@ class Touchstone(object):
 
 
 if __name__ == "__main__":
-    path = r"C:\work\Project\AE\optislang\Material_fitting\Material_fitting_workshop\Round1\90ohm_measurement.s4p"
+    path = r"C:\work\Project\AE\optislang\Material_fitting\90ohm_measurement.s4p"
     tsData = Touchstone(path)
-    # ax = tsData.plot("dbS31;dbS32;dbS33;dbS34", ylabel="Magnitude [dB]", title="S-Parameters")
+    ax = tsData.plot("dbS31;dbS32;dbS33;dbS34", ylabel="Magnitude [dB]", title="S-Parameters")
     tsData.get("dbs21*2")
     tsData.Network.s_mag[1,2]
     print(tsData.Network)

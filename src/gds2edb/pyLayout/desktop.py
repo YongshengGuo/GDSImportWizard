@@ -99,7 +99,7 @@ def getInstallPath(version=None):
     return None
 
 
-def initializeDesktop(version=None, installDir=None, nonGraphical = False,newDesktop=False):
+def initializeDesktop(version=None, installDir=None, nonGraphical = False, newDesktop=False,port=None):
     '''
     initializeDesktop'''
     #"2021.1"
@@ -124,26 +124,6 @@ def initializeDesktop(version=None, installDir=None, nonGraphical = False,newDes
         #environ ANSYSEM_ROOTxxx, set installDir from version
         aedtInstallDir = getInstallPath(version)
         
-        # verEnv = None
-        # if version:
-        #     ver = version.replace(".", "")[-3:]
-        #     verEnv = "ANSYSEM_ROOT%s" % ver
-            
-        #     if verEnv in os.environ:
-        #         aedtInstallDir = os.environ[verEnv] 
-        
-        # if aedtInstallDir:
-        #     os.environ["ANSYSEM_ROOT"] = aedtInstallDir
-        # elif "ANSYSEM_ROOT" in os.environ and os.environ["ANSYSEM_ROOT"].strip():
-        #     aedtInstallDir = os.environ["ANSYSEM_ROOT"]
-        # else:
-        #     ANSYSEM_ROOTs = list(
-        #         filter(lambda x: "ANSYSEM_ROOT" in x, os.environ))
-        #     if ANSYSEM_ROOTs:
-        #         log.debug("Try to initialize Desktop in latest version")
-        #         ANSYSEM_ROOTs.sort(key=lambda x: x[-3:])
-        #         aedtInstallDir = os.environ[ANSYSEM_ROOTs[-1]]
-         
     if aedtInstallDir: 
         print("AEDT InstallDir: %s"%aedtInstallDir)
     else:
@@ -183,7 +163,7 @@ def initializeDesktop(version=None, installDir=None, nonGraphical = False,newDes
     #for python
     if not isIronpython:
         #only for nonGraphical or newDesktop = true
-        if nonGraphical or newDesktop or is_linux:
+        if nonGraphical or newDesktop or is_linux or port:
             desktop_plugin = None
             try:
                 #only for version last then 2024R1
@@ -196,7 +176,7 @@ def initializeDesktop(version=None, installDir=None, nonGraphical = False,newDes
             try:
                 if desktop_plugin is None:
                     raise ImportError("PyDesktopPlugin unavailable")
-                oAnsoftApp = desktop_plugin.CreateAedtApplication(NGmode=nonGraphical,alwaysNew = newDesktop)
+                oAnsoftApp = desktop_plugin.CreateAedtApplication(machine="", port=port, NGmode = nonGraphical, alwaysNew = newDesktop)
                 oDesktop = oAnsoftApp.GetAppDesktop()
             except Exception:
                 log.info("PyDesktopPlugin not load, it's only for version last then 2024R1")

@@ -251,7 +251,22 @@ class GdsImportWizard(tk.Tk):
         top = tk.Frame(self)
         top.pack(fill="x", padx=10, pady=(10, 6))
         tk.Label(top, text="GDS Import Wizard", font=("Segoe UI", 12, "bold")).pack(side="left")
-        tk.Button(top, text="Help", width=10, command=self.open_help).pack(side="right")
+        tk.Button(
+            top,
+            text="Help",
+            width=12,
+            command=self.open_help,
+            font=("Segoe UI", 10, "bold"),
+            fg="white",
+            bg="#1769aa",
+            activeforeground="white",
+            activebackground="#0d4f82",
+            relief="flat",
+            bd=0,
+            padx=10,
+            pady=5,
+            cursor="hand2",
+        ).pack(side="right")
 
         file_box = tk.LabelFrame(self, text="Input Files")
         file_box.pack(fill="x", padx=10, pady=6)
@@ -532,6 +547,11 @@ class GdsImportWizard(tk.Tk):
             self._log(f"Config file: {cfg_path}")
 
             xml_path = Path(gds_file).with_suffix(".xml") if gds_file else Path(tech_file).with_suffix(".xml")
+            #如果xml_path存在，则先删除  20260910
+            if xml_path.exists():
+                self._log(f"Removing existing XML Control File: {xml_path}")
+                xml_path.unlink()
+            
             edb_out_text = self.edb_out_var.get().strip()
             if target == TARGET_EDB and edb_out_text:
                 edb_path = Path(edb_out_text)

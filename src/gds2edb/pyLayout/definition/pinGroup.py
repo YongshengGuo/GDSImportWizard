@@ -235,7 +235,7 @@ class PinGroups(Definitions):
         '''_summary_
 
         Args:
-            gDict (_type_): {"Name":"","Refdes":"","Pins":[],"Nets":"","Rows":1,"Cols":1}]
+            gDict (_type_): {"Name":"","Refdes":"","Pins":[],"Nets":"","Rows":1,"Cols":1}
             pins:should be short pins
         '''
 

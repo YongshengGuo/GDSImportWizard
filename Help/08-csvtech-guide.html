@@ -11,16 +11,14 @@
       
       
       
-        <link rel="prev" href="06-options-reference.html">
+        <link rel="prev" href="07-layermap-guide.html">
       
-      
-        <link rel="next" href="08-csvtech-guide.html">
       
       
         
-          <link rel="alternate" href="07-layermap-guide.html" hreflang="zh">
+          <link rel="alternate" href="08-csvtech-guide.html" hreflang="zh">
         
-          <link rel="alternate" href="en/07-layermap-guide.html" hreflang="en">
+          <link rel="alternate" href="en/08-csvtech-guide.html" hreflang="en">
         
       
       
@@ -29,7 +27,7 @@
     
     
       
-        <title>第7章 LayerMap 使用说明 - GDS2EDB Help</title>
+        <title>第8章 CSVTech 技术指导 - GDS2EDB Help</title>
       
     
     
@@ -80,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#7-layermap" class="md-skip">
+        <a href="#8-csvtech" class="md-skip">
           跳转至
         </a>
       
@@ -116,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第7章 LayerMap 使用说明
+              第8章 CSVTech 技术指导
             
           </span>
         </div>
@@ -163,13 +161,13 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="07-layermap-guide.html" hreflang="zh" class="md-select__link">
+            <a href="08-csvtech-guide.html" hreflang="zh" class="md-select__link">
               中文
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="en/07-layermap-guide.html" hreflang="en" class="md-select__link">
+            <a href="en/08-csvtech-guide.html" hreflang="en" class="md-select__link">
               English
             </a>
           </li>
@@ -590,6 +588,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="07-layermap-guide.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第7章 LayerMap 使用说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -609,7 +635,7 @@
   <span class="md-ellipsis">
     
   
-    第7章 LayerMap 使用说明
+    第8章 CSVTech 技术指导
   
 
     
@@ -620,14 +646,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="07-layermap-guide.html" class="md-nav__link md-nav__link--active">
+      <a href="08-csvtech-guide.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    第7章 LayerMap 使用说明
+    第8章 CSVTech 技术指导
   
 
     
@@ -653,10 +679,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#71-layermap" class="md-nav__link">
+  <a href="#81-csvtech" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.1 什么时候需要 LayerMap
+        8.1 CSVTech 是什么
       
     </span>
   </a>
@@ -664,10 +690,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#72-technology" class="md-nav__link">
+  <a href="#82" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.2 不同 Technology 文件类型的差异
+        8.2 两种模板先看结论
       
     </span>
   </a>
@@ -675,33 +701,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#73-gui" class="md-nav__link">
+  <a href="#83-csvtech_overlapping_templatecsv" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.3 GUI 模式的操作建议
+        8.3 CSVTech_overlapping_template.csv
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#74" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.4 命令行模式示例
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7.4 命令行模式示例">
+    <nav class="md-nav" aria-label="8.3 CSVTech_overlapping_template.csv">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#741-edb-layermap" class="md-nav__link">
+  <a href="#831" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.4.1 EDB 导入（建议带 LayerMap）
+        8.3.1 模板示例
       
     </span>
   </a>
@@ -709,10 +724,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#742-xml-layermap" class="md-nav__link">
+  <a href="#832" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.4.2 XML 生成（建议带 LayerMap）
+        8.3.2 这张表怎么读
       
     </span>
   </a>
@@ -720,10 +735,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#743-csvtech-layermap" class="md-nav__link">
+  <a href="#833" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.4.3 CSVTech 生成（可不带 LayerMap）
+        8.3.3 说明和注意事项
       
     </span>
   </a>
@@ -736,10 +751,60 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#75-layermap" class="md-nav__link">
+  <a href="#84-csvtech_laminate_templatecsv" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.5 LayerMap 文件格式参考
+        8.4 CSVTech_laminate_template.csv
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 CSVTech_laminate_template.csv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#841" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.1 模板示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#842" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.2 这张表怎么读
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#843" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.3 说明和注意事项
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#85" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 你该怎么选择
       
     </span>
   </a>
@@ -747,10 +812,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#76-textlayer" class="md-nav__link">
+  <a href="#86" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.6 TextLayer 的添加
+        8.6 使用顺序建议
       
     </span>
   </a>
@@ -758,10 +823,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#77" class="md-nav__link">
+  <a href="#87" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.7 常见错误与排查
+        8.7 与其他章节的关系
       
     </span>
   </a>
@@ -772,34 +837,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="08-csvtech-guide.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    第8章 CSVTech 技术指导
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -839,10 +876,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#71-layermap" class="md-nav__link">
+  <a href="#81-csvtech" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.1 什么时候需要 LayerMap
+        8.1 CSVTech 是什么
       
     </span>
   </a>
@@ -850,10 +887,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#72-technology" class="md-nav__link">
+  <a href="#82" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.2 不同 Technology 文件类型的差异
+        8.2 两种模板先看结论
       
     </span>
   </a>
@@ -861,33 +898,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#73-gui" class="md-nav__link">
+  <a href="#83-csvtech_overlapping_templatecsv" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.3 GUI 模式的操作建议
+        8.3 CSVTech_overlapping_template.csv
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#74" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.4 命令行模式示例
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7.4 命令行模式示例">
+    <nav class="md-nav" aria-label="8.3 CSVTech_overlapping_template.csv">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#741-edb-layermap" class="md-nav__link">
+  <a href="#831" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.4.1 EDB 导入（建议带 LayerMap）
+        8.3.1 模板示例
       
     </span>
   </a>
@@ -895,10 +921,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#742-xml-layermap" class="md-nav__link">
+  <a href="#832" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.4.2 XML 生成（建议带 LayerMap）
+        8.3.2 这张表怎么读
       
     </span>
   </a>
@@ -906,10 +932,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#743-csvtech-layermap" class="md-nav__link">
+  <a href="#833" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.4.3 CSVTech 生成（可不带 LayerMap）
+        8.3.3 说明和注意事项
       
     </span>
   </a>
@@ -922,10 +948,60 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#75-layermap" class="md-nav__link">
+  <a href="#84-csvtech_laminate_templatecsv" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.5 LayerMap 文件格式参考
+        8.4 CSVTech_laminate_template.csv
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 CSVTech_laminate_template.csv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#841" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.1 模板示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#842" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.2 这张表怎么读
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#843" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.3 说明和注意事项
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#85" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 你该怎么选择
       
     </span>
   </a>
@@ -933,10 +1009,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#76-textlayer" class="md-nav__link">
+  <a href="#86" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.6 TextLayer 的添加
+        8.6 使用顺序建议
       
     </span>
   </a>
@@ -944,10 +1020,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#77" class="md-nav__link">
+  <a href="#87" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.7 常见错误与排查
+        8.7 与其他章节的关系
       
     </span>
   </a>
@@ -1019,81 +1095,201 @@
 
 
 
-<h1 id="7-layermap">第7章 LayerMap 使用说明</h1>
-<p>本章说明什么时候必须提供 LayerMap 文件、什么时候可以不提供，以及 LayerMap 的推荐格式。</p>
-<h2 id="71-layermap">7.1 什么时候需要 LayerMap</h2>
+<h1 id="8-csvtech">第8章 CSVTech 技术指导</h1>
+<p>本章尽量按照示例 CSV 的真实结构说明 CSVTech 的两种模板。重点不是代码实现，而是你在表格里该怎么填、该怎么选模板。</p>
+<h2 id="81-csvtech">8.1 CSVTech 是什么</h2>
+<p>CSVTech 是用 CSV 文件描述 Customized Technology File 的方式。你可以先把层信息整理成表格，再用于导入、共享、二次编辑或作为模板继续扩展。
+所有支持的 Technology File 都可以转换为 CSV Tech，便于二次编辑和分享。
+如果没有合适的 Technology File，可以根据已知叠层手动编辑 CSV Tech，然后再进行 GDS 文件导入。</p>
+<h2 id="82">8.2 两种模板先看结论</h2>
+<table>
+<thead>
+<tr>
+<th>模板</th>
+<th>中文说明</th>
+<th>适合你什么时候用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CSVTech_overlapping_template.csv</td>
+<td>显式定义介质层，dielectric 和 metal/via 分开定义</td>
+<td>适合需要把介质层细节完整表达出来的场景</td>
+</tr>
+<tr>
+<td>CSVTech_laminate_template.csv</td>
+<td>隐式定义介质层，输入数据更少</td>
+<td>适合希望快速整理层叠关系的场景</td>
+</tr>
+</tbody>
+</table>
+<h2 id="83-csvtech_overlapping_templatecsv">8.3 CSVTech_overlapping_template.csv</h2>
+<p>这个模板适合“任何 stackup”。dielectric 和 metals 分开写，适合你需要完整描述层叠关系的场景。</p>
+<h3 id="831">8.3.1 模板示例</h3>
+<table border="1" style="width: 100%; height: auto; font-size: 0.6em; line-height: 1.35; table-layout: auto; white-space: normal; overflow-wrap: anywhere; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th>NO</th><th>LayerName</th><th>Type</th><th>LayerMap</th><th>TextLayerMap</th><th>Thickness</th><th>Height</th><th>LowerLayer</th><th>UpperLayer</th><th>DK</th><th>DF</th><th>Cond</th><th>TC1</th><th>TC2</th><th>Tref</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>1</td><td>UF1</td><td>D</td><td></td><td></td><td>35</td><td>107.64</td><td></td><td></td><td>3.7</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>2</td><td>PASS4</td><td>D</td><td></td><td></td><td>0.6</td><td>107.04</td><td></td><td></td><td>8.1</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>3</td><td>PASS3b</td><td>D</td><td></td><td></td><td>0.4</td><td>106.64</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>4</td><td>PASS3a</td><td>D</td><td></td><td></td><td>1.45</td><td>105.19</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>5</td><td>PASS2</td><td>D</td><td></td><td></td><td>0.7</td><td>104.49</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>6</td><td>PASS1</td><td>D</td><td></td><td></td><td>0.075</td><td>104.415</td><td></td><td></td><td>8.1</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>7</td><td>IMD3c</td><td>D</td><td></td><td></td><td>0.725</td><td>103.69</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>8</td><td>IMD3b</td><td>D</td><td></td><td></td><td>0.05</td><td>103.64</td><td></td><td></td><td>8.1</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>9</td><td>IMD3a</td><td>D</td><td></td><td></td><td>0.62</td><td>103.02</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>10</td><td>IMD2g</td><td>D</td><td></td><td></td><td>0.05</td><td>102.97</td><td></td><td></td><td>5</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>11</td><td>IMD2f</td><td>D</td><td></td><td></td><td>0.725</td><td>102.245</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>12</td><td>IMD2e</td><td>D</td><td></td><td></td><td>0.05</td><td>102.195</td><td></td><td></td><td>8.1</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>13</td><td>IMD2d</td><td>D</td><td></td><td></td><td>0.322</td><td>101.873</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>14</td><td>IMD2c</td><td>D</td><td></td><td></td><td>0.08</td><td>101.793</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>15</td><td>IMD2b</td><td>D</td><td></td><td></td><td>0.018</td><td>101.775</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>16</td><td>IMD2a</td><td>D</td><td></td><td></td><td>0.2</td><td>101.575</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>17</td><td>IMD1c</td><td>D</td><td></td><td></td><td>0.05</td><td>101.525</td><td></td><td></td><td>5</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>18</td><td>IMD1b</td><td>D</td><td></td><td></td><td>0.725</td><td>100.8</td><td></td><td></td><td>4.2</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>19</td><td>IMD1a</td><td>D</td><td></td><td></td><td>0.05</td><td>100.75</td><td></td><td></td><td>8.1</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>20</td><td>ILD</td><td>D</td><td></td><td></td><td>0.75</td><td>100</td><td></td><td></td><td>4</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>21</td><td>substrate</td><td>D</td><td></td><td></td><td>100</td><td>0</td><td></td><td></td><td>11.9</td><td></td><td>10</td><td></td><td></td><td></td></tr>
+        <tr><td>22</td><td>PASSB1</td><td>D</td><td></td><td></td><td>0.8</td><td>-0.8</td><td></td><td></td><td>6.7</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>23</td><td>PASSB2b</td><td>D</td><td></td><td></td><td>2</td><td>-2.8</td><td></td><td></td><td>6.7</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>24</td><td>PASSB2a</td><td>D</td><td></td><td></td><td>0.4</td><td>-3.2</td><td></td><td></td><td>6.7</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>25</td><td>underFill_C</td><td>D</td><td></td><td></td><td>0.001</td><td>-3.201</td><td></td><td></td><td>6.7</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>26</td><td>ubump</td><td>C</td><td>170;0 74;0</td><td>125;0</td><td>0.001</td><td>142.639</td><td></td><td></td><td></td><td></td><td>5.80E+07</td><td>0.00E+00</td><td>0.00E+00</td><td>2.50E+01</td></tr>
+        <tr><td>27</td><td>metal4</td><td>C</td><td>74;0</td><td></td><td>1.45</td><td>105.19</td><td></td><td></td><td></td><td></td><td>5.80E+07</td><td>3.89E-03</td><td>-1.50E-07</td><td>2.50E+01</td></tr>
+        <tr><td>28</td><td>metal3</td><td>C</td><td>33;40</td><td></td><td>0.85</td><td>103.565</td><td></td><td></td><td></td><td></td><td>5.80E+07</td><td>3.63E-03</td><td>-1.39E-06</td><td>2.50E+01</td></tr>
+        <tr><td>29</td><td>metal2</td><td>C</td><td>32;40</td><td></td><td>0.85</td><td>102.12</td><td></td><td></td><td></td><td></td><td>5.80E+07</td><td>3.63E-03</td><td>-1.39E-06</td><td>2.50E+01</td></tr>
+        <tr><td>30</td><td>ctm</td><td>C</td><td></td><td></td><td>0.08</td><td>101.793</td><td></td><td></td><td></td><td></td><td>5.80E+07</td><td>0.00E+00</td><td>0.00E+00</td><td>2.50E+01</td></tr>
+        <tr><td>31</td><td>cbm</td><td>C</td><td></td><td></td><td>0.2</td><td>101.575</td><td></td><td></td><td></td><td></td><td>5.80E+07</td><td>0.00E+00</td><td>0.00E+00</td><td>2.50E+01</td></tr>
+        <tr><td>32</td><td>metal1</td><td>C</td><td>31;40</td><td></td><td>0.85</td><td>100.675</td><td></td><td></td><td></td><td></td><td>5.80E+07</td><td>3.63E-03</td><td>-1.39E-06</td><td>2.50E+01</td></tr>
+        <tr><td>33</td><td>mb1</td><td>C</td><td>31;100</td><td></td><td>0.001</td><td>-0.801</td><td></td><td></td><td></td><td></td><td>5.80E+07</td><td>0.00E+00</td><td>0.00E+00</td><td>2.50E+01</td></tr>
+        <tr><td>34</td><td>ubmb</td><td>C</td><td>170;100</td><td>125;100</td><td>0.001</td><td>-3.201</td><td></td><td></td><td></td><td></td><td>5.80E+07</td><td>0.00E+00</td><td>0.00E+00</td><td>2.50E+01</td></tr>
+        <tr><td>36</td><td>via4</td><td>V</td><td>86;0</td><td></td><td></td><td></td><td>metal4</td><td>ubump</td><td></td><td></td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>37</td><td>via3</td><td>V</td><td>85;0</td><td></td><td></td><td></td><td>metal3</td><td>metal4</td><td></td><td></td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>38</td><td>via2</td><td>V</td><td>52;40</td><td></td><td></td><td></td><td>metal2</td><td>metal3</td><td></td><td></td><td>5.80E+07</td><td>3.63E-03</td><td>-1.39E-06</td><td></td></tr>
+        <tr><td>39</td><td>ctm_via</td><td>V</td><td></td><td></td><td></td><td></td><td>ctm</td><td>metal2</td><td></td><td></td><td>5.80E+07</td><td>0.00E+00</td><td>0.00E+00</td><td></td></tr>
+        <tr><td>40</td><td>cbm_via</td><td>V</td><td></td><td></td><td></td><td></td><td>cbm</td><td>metal2</td><td></td><td></td><td>5.80E+07</td><td>0.00E+00</td><td>0.00E+00</td><td></td></tr>
+        <tr><td>41</td><td>via1</td><td>V</td><td>51;40</td><td></td><td></td><td></td><td>metal1</td><td>metal2</td><td></td><td></td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>42</td><td>tsv</td><td>V</td><td>251;0 86;0</td><td></td><td></td><td></td><td>mb1</td><td>metal1</td><td></td><td></td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>43</td><td>pmb</td><td>V</td><td>5;100</td><td></td><td></td><td></td><td>ubmb</td><td>mb1</td><td></td><td></td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>44</td><td>tsv</td><td>I</td><td></td><td></td><td>0.15</td><td></td><td></td><td></td><td>4</td><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+</table>
+
+<h3 id="832">8.3.2 这张表怎么读</h3>
 <ol>
-<li>当 technology file 中没有 LayerMap 信息时，必须提供 LayerMap 文件补充映射。</li>
-<li>生成 EDB 和 XML 时，建议始终提供 LayerMap，避免导入层映射缺失。</li>
-<li>生成 CSVTech 时不强制依赖 LayerMap，可以先导出 CSV，再人工补充映射列。</li>
+<li>LayerName 是 3D Layout stackup 里要用的层名，应该存在。</li>
+<li>Type 的含义是：C=Conductor/Metal layer，V=Via layer，D=Dielectric layer，I=Insulating layer。</li>
+<li>Via Group 和 SnapViaGroups 会作用在所有 Via 层上。</li>
+<li>Insulating layer 用来定义 TSV insulation thickness，前提是它对应的 LayerName 已在 Via Layers 中定义。</li>
+<li>LayerMap 是 GDS 里的层映射，Conductor/Metal 和 Via 层必须有 LayerMap，否则会被忽略。</li>
+<li>一个层可以写多个 LayerMap，中间用空格分隔，例如 <code>86;0 85;0</code>。</li>
+<li>TextLayerMap 是用来提取 GDS 里的 net list，前提是 GDS 里有 net 信息。</li>
+<li>Thickness 是层厚，默认单位是 um。</li>
+<li>Height 是层在 stackup 中的位置。</li>
+<li>低层是最后一个 dielectric layer 的原点，D/C/V 的 Height 都参考这个原点，可以是负值。</li>
+<li>LowerLayer 和 UpperLayer 定义 via 层的起止层。</li>
+<li>如果 LowerLayer / UpperLayer 没有填写，程序会按相邻层推断。</li>
+<li>LowerLayer / UpperLayer 的优先级高于 via Thickness。</li>
+<li>DK、DF、Cond 用于设置层材料属性。</li>
+<li>TC1、TC2、Tref 用于温度相关导电率分析。</li>
+<li>只有在 GUI 勾选 UseTemperatureDependMaterial 时，才会使用温度相关材料。</li>
 </ol>
-<h2 id="72-technology">7.2 不同 Technology 文件类型的差异</h2>
+<h3 id="833">8.3.3 说明和注意事项</h3>
+<pre><code class="language-text">#Note:
+1 以 # 开头的行会被视为注释
+2 没有 Type 值的行会被忽略
+3 Type 定义：C = Conductor/Metal layer，V = Via layer，D = Dielectric layer，I = Insulating layer
+4 Conductor/Metal 和 Via 层必须填写 LayerMap，否则会被忽略
+5 Dielectric 层的 Height 是可选项，如果填写，介质层会按 Height 重新排序
+6 在 overlapping template 中，Conductor/Metal 层必须填写 Height，并会按 Height 重新排序
+7 Via 层的 Height 和 Thickness 由 LowerLayer 和 UpperLayer 定义
+8 Insulating layer 用来定义 TSV insulation thickness，它的 LayerName 必须已经在 Via Layers 中定义，否则会被忽略
+9 所有 Height 都表示该层的下边界
+10 所有长度单位默认是微米
+</code></pre>
+<h2 id="84-csvtech_laminate_templatecsv">8.4 CSVTech_laminate_template.csv</h2>
+<p>这个模板更简化，适合 PCB / Package 风格的层叠。它更像 laminate 输入，metal / via 层按顺序定义。</p>
+<h3 id="841">8.4.1 模板示例</h3>
+<table border="1" style="width: 100%; height: auto; font-size: 0.6em; line-height: 1.35; table-layout: auto; white-space: normal; overflow-wrap: anywhere; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th>NO</th><th>LayerName</th><th>Type</th><th>LayerMap</th><th>TextLayerMap</th><th>Thickness</th><th>Height</th><th>DK</th><th>DF</th><th>Cond</th><th>TC1</th><th>TC2</th><th>Tref</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>1</td><td>TOP_UBM</td><td>C</td><td>214;0</td><td>214;0</td><td>44.5</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>2</td><td>PI1</td><td>V</td><td>11;0</td><td></td><td>3</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>3</td><td>RDL1</td><td>C</td><td>1;0</td><td></td><td>4</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>4</td><td>PI2</td><td>V</td><td>12;0</td><td></td><td>3</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>5</td><td>RDL2</td><td>C</td><td>2;0</td><td></td><td>4</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>6</td><td>PI3</td><td>V</td><td>13;0</td><td></td><td>3</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>7</td><td>RDL3</td><td>C</td><td>3;0</td><td></td><td>4</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>8</td><td>tsv</td><td>V</td><td>14;0</td><td></td><td>3</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>9</td><td>RDL4</td><td>C</td><td>4;0</td><td></td><td>4</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>10</td><td>PI5</td><td>V</td><td>15;0</td><td></td><td>3</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>11</td><td>BOT_UBM</td><td>C</td><td>215;0</td><td></td><td>58</td><td></td><td>4</td><td>0.02</td><td>5.80E+07</td><td></td><td></td><td></td></tr>
+        <tr><td>12</td><td>tsv</td><td>I</td><td></td><td></td><td>0.15</td><td></td><td>4</td><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+</table>
+
+<h3 id="842">8.4.2 这张表怎么读</h3>
 <ol>
-<li>IRCX 通常包含 LayerMap 信息，可不单独提供 LayerMap 文件。</li>
-<li>若对 IRCX 同时提供了 LayerMap 文件，将以外部 LayerMap 覆盖原有映射。</li>
-<li>ITF 及其他主流 technology 文件通常不包含完整 LayerMap，需要额外提供 LayerMap 文件。</li>
+<li>LayerName 同样是 3D Layout stackup 中使用的层名，必须存在。</li>
+<li>Type 的含义同上：C、V、D、I。</li>
+<li>这个模板里不建议再放单独的 D 类型 dielectric 层。</li>
+<li>The start and end layer is considered as the adjacent layers.</li>
+<li>Via Group 和 SnapViaGroups 也会作用在所有 Via 层上。</li>
+<li>Insulating layer 仍然用于定义 TSV insulation thickness，LayerName 必须已在 Via Layers 中定义。</li>
+<li>LayerMap 对 Conductor/Metal 和 Via 层仍然必须提供，否则会被忽略。</li>
+<li>TextLayerMap 依旧用于提取 net list。</li>
+<li>Thickness 在 laminate template 中主要用于 Metals/Vias。</li>
+<li>Height 表示层在 stackup 中的位置，但通常按层厚累计自动计算。</li>
+<li>Manually set the height value is not suggested.</li>
+<li>DK、DF 用于 filled material，Cond 用于 metal/via material。</li>
+<li>TC1、TC2、Tref 仍然用于温度相关导电率分析。</li>
 </ol>
-<p>说明：</p>
+<h3 id="843">8.4.3 说明和注意事项</h3>
+<pre><code class="language-text">1 LayerName 是 3D Layout stackup 中使用的层名，应该存在。
+2 Type 定义：C = Conductor/Metal layer，V = Via layer，D = Dielectric layer，I = Insulating layer
+    在这个 laminate template 中不应该出现 D 类型的 dielectric layer。
+    起始层和结束层被视为相邻层。
+    Via Group 和 SnapViaGroups 会作用于所有 Via 层。
+    Insulating layer 用于定义 TSV insulation thickness，它的 LayerName 必须已经在 Via Layers 中定义，否则会被忽略。
+3 LayerMap 表示 GDS 文件中的层映射。
+    Conductor/Metal 和 Via 层必须填写 LayerMap，否则会被忽略。
+    一个层可以写多个 LayerMap，中间用空格分隔，例如 86;0 85;0。
+4 TextLayerMap 表示在 GDS 中用于提取 net list 的层。
+    GDS 中对应的 layermap 应该包含网络信息。
+5 Thickness 必须填写，用于 Metals/Vias 层厚度，默认单位是 um。
+6 Height 表示该层在 stackup 中的位置。
+    所有 Height 都会按 Metal 和 Via 层的厚度累加得到（逆序累加）。
+    不建议手动设置 Height。
+</code></pre>
+<h2 id="85">8.5 你该怎么选择</h2>
 <ol>
-<li>工具运行时如果读取到 LayerMap 文件，会按 LayerName 将映射写入导入层定义。</li>
-<li>未匹配到 LayerMap 的层可能在后续导入中表现为无映射或被忽略。</li>
+<li>CSVTech_laminate 和 CSVTech_overlapping 都是用于 GDS 导入的模板工具，用户可以根据实际情况选用。</li>
+<li>CSVTech_laminate 是隐式定义介质层的模板，输入数据更少，更适合希望快速整理层叠关系的场景。</li>
+<li>CSVTech_overlapping 是显式定义介质层的模板，需要填写的数据更多，更适合需要把介质层细节完整表达出来的场景。</li>
+<li>如果你需要保留 net 提取相关信息，要填写 TextLayerMap。</li>
+<li>如果你只想先生成 CSV，再后续补充映射，可以先从 CSVTech 开始整理。</li>
 </ol>
-<h2 id="73-gui">7.3 GUI 模式的操作建议</h2>
+<h2 id="86">8.6 使用顺序建议</h2>
 <ol>
-<li>在界面中先选择 Tech File。</li>
-<li>在 LayerMap File 选择对应工艺版本的 .layermap 文件。</li>
-<li>若同一项目有多个工艺版本，不要混用 LayerMap。</li>
-<li>点击 Start 后在 Logs 中检查是否存在 LayerMap 相关告警。</li>
+<li>先复制模板文件。</li>
+<li>再按工艺版本整理 LayerName、LayerMap、Height、Thickness。</li>
+<li>overlapping template 先填 dielectric，再填 metal / via。</li>
+<li>laminate template 先确认层叠，再填 metal / via。</li>
+<li>保存后作为 Technology File 继续使用。</li>
 </ol>
-<h2 id="74">7.4 命令行模式示例</h2>
-<h3 id="741-edb-layermap">7.4.1 EDB 导入（建议带 LayerMap）</h3>
-<pre><code class="language-bash">python gds2edb.py &quot;D:\data\stackup.ircx&quot; &quot;D:\data\chip.gds&quot; &quot;D:\out\chip.aedb&quot; -l &quot;D:\data\65RFSOI.layermap&quot;
-</code></pre>
-<h3 id="742-xml-layermap">7.4.2 XML 生成（建议带 LayerMap）</h3>
-<pre><code class="language-bash">python gds2edb.py &quot;D:\data\stackup.itf&quot; -t2x -l &quot;D:\data\65RFSOI.layermap&quot;
-</code></pre>
-<h3 id="743-csvtech-layermap">7.4.3 CSVTech 生成（可不带 LayerMap）</h3>
-<pre><code class="language-bash">python gds2edb.py &quot;D:\data\stackup.itf&quot; -t2c
-</code></pre>
-<h2 id="75-layermap">7.5 LayerMap 文件格式参考</h2>
-<p>示例：</p>
-<pre><code class="language-text">#65RFSOI.layermap
-#Layer Name     Layer Purpose  Layer Stream Number  Datatype Stream Number
-ALPA            drawing        83                   0
-viaPA           drawing        79                   0
-M5              drawing        122                  40
-V4              drawing        123                  40
-M4              drawing        120                  40
-V3              drawing        121                  40
-MIM             drawing        58                   0
-MIM_P2          drawing        31                   0
-M3              drawing        63                   0
-V2              drawing        71                   0
-M2              drawing        62                   0
-V1              drawing        70                   0
-M1              drawing        61                   0
-GT              drawing        30                   0
-AA              drawing        10                   0
-CT              drawing        50                   0
-</code></pre>
-<p>字段说明：</p>
+<h2 id="87">8.7 与其他章节的关系</h2>
 <ol>
-<li>Layer Name：工艺层名，需要与 technology 中层名一致。</li>
-<li>Layer Purpose：用途，常见为 drawing。</li>
-<li>Layer Stream Number：GDS Layer Number。</li>
-<li>Datatype Stream Number：GDS Datatype。</li>
-</ol>
-<h2 id="76-textlayer">7.6 TextLayer 的添加</h2>
-<p>在 layermap 中直接添加同一 Layer Name 的 Text 映射即可。</p>
-<p>例如，为金属层 M5 添加 Text 标识：</p>
-<pre><code class="language-text">M5              drawing        122                  40
-M5              Text           100                  0
-</code></pre>
-<h2 id="77">7.7 常见错误与排查</h2>
-<ol>
-<li>层名不一致：LayerMap 的 Layer Name 与 tech 中 LayerName 不一致，导致映射失败。</li>
-<li>工艺版本不匹配：使用了错误版本的 LayerMap，导致导入层错位。</li>
-<li>文件编码或分隔异常：建议使用纯文本、空白分隔列、避免额外不可见字符。</li>
+<li>如果你不确定 LayerMap 怎么填，请先看第7章。</li>
+<li>如果你要调整输出行为，请再参考第6章 Options。</li>
+<li>如果你是用界面导出 CSV，请先参考第3章。</li>
 </ol>
 
 
@@ -1130,7 +1326,7 @@ M5              Text           100                  0
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="06-options-reference.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 第6章 Options 详细说明">
+          <a href="07-layermap-guide.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 第7章 LayerMap 使用说明">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
@@ -1140,27 +1336,11 @@ M5              Text           100                  0
                 上一页
               </span>
               <div class="md-ellipsis">
-                第6章 Options 详细说明
+                第7章 LayerMap 使用说明
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="08-csvtech-guide.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 第8章 CSVTech 技术指导">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                第8章 CSVTech 技术指导
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
