@@ -1,5 +1,7 @@
-中文 Help: https://yongshengguo.github.io/GDSImportWizard/en/index.html  
-English Help: https://yongshengguo.github.io/GDSImportWizard/en/index.html  
+中文 Help: https://yongshengguo.github.io/GDSImportWizard/index.html   
+English Help: https://yongshengguo.github.io/GDSImportWizard/en/index.html    
+Latest Release download: https://github.com/YongshengGuo/GDSImportWizard/releases/latest
+
 
 Note: 
 1. GDSImportWizard 6.x只适合AEDT 2025之后的版本，需要通过python运行，不能通过AEDT->Run Script执行。  
