@@ -1,0 +1,27 @@
+ 
+Ansys Electronics Desktop Version 2026.1.0, Build: 2026-02-02 02:17:35
+Location: C:\Program Files\ANSYS Inc\v261\AnsysEM\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 9:39:14 PM  Oct 28, 2026
+Running as user : SYNOPSYS\yguo
+Temp directory: C:\Users\yguo\AppData\Local\Temp
+Project directory: C:\Users\yguo\Documents\Ansoft
+The project '9DQ_2' has been edited and/or solved. Do you want to save the changes?
+The project 'hbm_demo' has been edited and/or solved. Do you want to save the changes?
+-- Message Window --
+      *Global - Messages
+        [info] gRPC server started on port 55949 of local host. Only connections from the local host initiated by the same user are permitted. 
+        [info] OpenGL Version: 4.6.0 NVIDIA 573.51
+        [warning] GDSII Translation: GDSII Import process has been aborted.
+        [info] The project '9DQ_2' has been edited and/or solved. Do you want to save the changes?
+        [info] The project 'hbm_demo' has been edited and/or solved. Do you want to save the changes?
+-- Message Window --
+Stopping Batch Run: 10:02:57 AM  Oct 29, 2026
+ 
+Ansys Electronics Desktop Version 2026.1.0, Build: 2026-02-02 02:17:35
+Location: C:\Program Files\ANSYS Inc\v261\AnsysEM\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 10:04:35 AM  Oct 29, 2026
+Running as user : SYNOPSYS\yguo
+Temp directory: C:\Users\yguo\AppData\Local\Temp
+Project directory: C:\Users\yguo\Documents\Ansoft

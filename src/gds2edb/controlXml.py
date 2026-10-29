@@ -176,9 +176,9 @@ class Layer(object):
     
     @property
     def LayerXml(self):
-        if not self._layerDef:
-            self.parse()
-
+        # if not self._layerDef:
+        #     self.parse()
+        self.parse() #alway parse before generating XML
         xml = self._xmlT.format(**self.LayerDef)
         return xml
     
@@ -323,7 +323,7 @@ class ControlXml(object):
         return dict([(m.name,m.Def) for m in self._MaterialList])
 
     def preOptionsLayer(self):
-        #归一化Options layers,以self._conductorList
+        #归一化Options layers, self._conductorList
         if "UnionPrimitivesOnLayer" in options and options["UnionPrimitivesOnLayer"]:
             layers = re.split(r"[;,\s]+", options["UnionPrimitivesOnLayer"])
             UnionPrimitivesOnLayer = []
@@ -361,7 +361,7 @@ class ControlXml(object):
         self._ViaList = []
         self._MaterialList = []
         
-        for layer in tech.Conductors:
+        for layer in tech.Conductors[::-1]: #reverse order
             if layer["LayerMap"] in ["0:0","0",None,"0;0"]:# == "0:0" or not layer["LayerMap"]["Layer"]:
                 continue
             
@@ -391,7 +391,7 @@ class ControlXml(object):
                 self._ViaList.append(sLayer)
             self._MaterialList.append(sLayer.Material)
 
-        for layer in tech.Dielectrics:  
+        for layer in tech.Dielectrics[::-1]: #reverse order
             sLayer = Layer(layer,typ = "Dielectric")
             self._dielectricList.append(sLayer)
             self._MaterialList.append(sLayer.Material)
