@@ -3,6 +3,7 @@
 #--- @author: yongsheng.guo@synopsys.com
 #--- @Time: ver 6.0 20260225 
 
+import re
 import sys,os
 appPath = os.path.realpath(__file__)
 appDir = os.path.split(appPath)[0] 
@@ -115,7 +116,8 @@ class GDS2Edb(object):
         tech2 = tech.copy()
         tech2.removeDuplicateDielectricLayers()
         if "IgnoreLayersReg" in options and options["IgnoreLayersReg"]:
-            tech2.setIgnoreLayers(options["IgnoreLayersReg"])
+            layers = re.split(r"[;,\s]+", options["IgnoreLayersReg"])
+            tech2.setIgnoreLayers(layers)
 
         if "SimplifyDieletricMethod" in options and options["SimplifyDieletricMethod"]:
             SimplifyDieletricMethod = options["SimplifyDieletricMethod"]
